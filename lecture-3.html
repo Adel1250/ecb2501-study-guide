@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture 3 · Bonding · ECB2501</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">Lecture 3 + Tutorial Section 2</div>
+  <h1>Why do atoms stick together? 🧲</h1>
+  <p>The three strong bonds, the famous energy curve, and every Section 2 problem solved step by step.</p>
+</header>
+
+<div class="toc"><b>On this page</b><ol>
+  <li><a href="#primary">The 3 primary bonds (overview)</a></li>
+  <li><a href="#ionic">Ionic bonding</a></li>
+  <li><a href="#covalent">Covalent bonding</a></li>
+  <li><a href="#metallic">Metallic bonding</a></li>
+  <li><a href="#sec2">⭐ TUTORIAL Section 2: bonding forces &amp; energies 🎮</a></li>
+  <li><a href="#props">What the energy curve tells an engineer</a></li>
+  <li><a href="#check">Check yourself</a></li>
+</ol></div>
+
+<div class="story"><b>🔗 Connecting to Lecture 2</b> Atoms are "unhappy" until their outer shell is full. There are three ways to fix that, and each one is a type of bond:
+<br>📤📥 <b>Give / take</b> electrons → <b>ionic</b> bond
+<br>🤝 <b>Share</b> electrons with a neighbour → <b>covalent</b> bond
+<br>🌊 Throw outer electrons into a shared "sea" → <b>metallic</b> bond</div>
+
+<section class="level" id="primary">
+  <div class="lvl"><div class="badge">1</div><h2>The 3 primary (strong) bonds at a glance</h2></div>
+  <div class="tablewrap"><table>
+    <tr><th></th><th>Ionic</th><th>Covalent</th><th>Metallic</th></tr>
+    <tr><td><b>Between</b></td><td>metal + nonmetal</td><td>nonmetal + nonmetal</td><td>metal + metal</td></tr>
+    <tr><td><b>Electrons are…</b></td><td>transferred (given → taken)</td><td>shared in pairs</td><td>free to roam ("electron gas")</td></tr>
+    <tr><td><b>Directional?</b></td><td>No</td><td><b>Yes</b></td><td>No</td></tr>
+    <tr><td><b>Example</b></td><td>NaCl (salt), MgO</td><td>diamond, O₂, H₂O inside the molecule</td><td>copper, iron, aluminum</td></tr>
+    <tr><td><b>Feels like</b></td><td>hard, brittle, insulator</td><td>often hard, can be strong or weak</td><td>ductile, shiny, conducts</td></tr>
+  </table></div>
+  <p class="small">The weak <b>secondary</b> bonds (van der Waals, hydrogen bonds) were in <a href="lecture-2.html#secondary">Lecture 2</a>.</p>
+</section>
+
+<section class="level" id="ionic">
+  <div class="lvl"><div class="badge b">2</div><h2>Ionic bonding 📤📥</h2></div>
+  <p>Happens between a <b>metal</b> and a <b>nonmetal</b>, atoms from opposite sides of the periodic table.</p>
+  <ul>
+    <li><b>Metals</b> have <b>1, 2 or 3</b> electrons in their outer shell. Easiest fix: <b>give them away</b>. Then the full shell underneath becomes the outer one.</li>
+    <li><b>Nonmetals</b> have <b>5, 6 or 7</b> outer electrons. Easiest fix: <b>grab a few more</b> to reach 8.</li>
+  </ul>
+  <h3>The NaCl story (table salt) 🧂</h3>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 200" role="img" aria-label="Sodium gives an electron to chlorine, forming Na+ and Cl- that attract">
+      <circle cx="90" cy="60" r="28" fill="none" stroke="var(--muted)" stroke-width="2"/>
+      <text x="90" y="66" text-anchor="middle" font-size="16" font-weight="700">Na</text>
+      <text x="90" y="112" text-anchor="middle" font-size="13" style="fill:var(--muted)">metal, unstable</text>
+      <circle cx="300" cy="60" r="38" fill="var(--code)" stroke="var(--muted)" stroke-width="2"/>
+      <text x="300" y="66" text-anchor="middle" font-size="16" font-weight="700">Cl</text>
+      <text x="300" y="118" text-anchor="middle" font-size="13" style="fill:var(--muted)">nonmetal, unstable</text>
+      <path d="M 120 42 Q 200 0 262 40" fill="none" stroke="var(--gold)" stroke-width="3"/>
+      <polygon points="262,40 250,28 248,42" fill="var(--gold)"/>
+      <text x="190" y="18" text-anchor="middle" font-size="14" style="fill:var(--gold)" font-weight="700">1 electron jumps</text>
+      <text x="380" y="66" font-size="30">→</text>
+      <circle cx="460" cy="70" r="22" fill="var(--accent)"/>
+      <text x="460" y="77" text-anchor="middle" font-size="18" font-weight="800" style="fill:#fff">+</text>
+      <circle cx="580" cy="70" r="44" fill="var(--blue)"/>
+      <text x="580" y="78" text-anchor="middle" font-size="24" font-weight="800" style="fill:#fff">−</text>
+      <line x1="486" y1="70" x2="532" y2="70" stroke="var(--ink)" stroke-width="3"/>
+      <text x="460" y="128" text-anchor="middle" font-size="13">Na⁺ (stable)</text>
+      <text x="580" y="134" text-anchor="middle" font-size="13">Cl⁻ (stable)</text>
+      <text x="520" y="175" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--accent)">+ and − attract: "Coulombic attraction"</text>
+    </svg>
+  </div>
+  <ol class="steps">
+    <li>Sodium (Na) has one lonely outer electron (3s¹). Chlorine (Cl) needs one more (3p⁵ → 3p⁶).</li>
+    <li>Na <b>gives</b> its electron to Cl. Now both have full shells and are stable.</li>
+    <li>But Na lost a negative charge → it's now <b>Na⁺</b> (a <b>cation</b>). Cl gained one → <b>Cl⁻</b> (an <b>anion</b>).</li>
+    <li>Opposite charges attract like magnets 🧲. That attraction <b>is</b> the ionic bond. (The official name: <b>Coulombic attraction</b>.)</li>
+  </ol>
+  <h3>Another example: MgO</h3>
+  <div class="math">Mg: 1s² 2s² 2p⁶ <b style="color:var(--accent)">3s²</b> &nbsp;→ gives 2 e⁻ → Mg²⁺: 1s² 2s² 2p⁶ (like neon [Ne])</div>
+  <div class="math">O: 1s² 2s² 2p⁴ &nbsp;→ takes 2 e⁻ → O²⁻: 1s² 2s² 2p⁶ (also like neon [Ne])</div>
+  <p>Both end up with neon's perfect configuration. This works because their <b>electronegativities are very different</b>: one strongly wants to give, the other strongly wants to take.</p>
+  <div class="tip"><b>🔑 Ionic bonding needs</b> (these are the blanks in the slides)
+  <br>• It <b>requires electron transfer</b>.
+  <br>• It needs a <b>large difference in electronegativity</b>.
+  <br>• It is the <b>predominant bonding in ceramics</b>.
+  <br>Examples from the slides: NaCl, MgO, CaF₂, CsCl.</div>
+  <h3>Features of ionic materials</h3>
+  <ul>
+    <li>💪 Strong, high-energy bonds → <b>high melting point</b></li>
+    <li>🧭 <b>Non-directional</b>: a + ion attracts − ions equally in every direction</li>
+    <li>🔨 <b>Hard and brittle</b>: they crack (cleave) instead of bending</li>
+    <li>🔌 <b>Insulators</b>: electrons are locked onto ions and can't move. Often transparent.</li>
+  </ul>
+
+  <div class="checkpoint" data-title="Ionic bonding"><script type="application/json">[{"q": "Ionic bonding happens between…", "o": ["two nonmetals", "a metal and a nonmetal", "two metals", "two noble gases"], "a": 1, "why": "The metal gives electrons and the nonmetal takes them."}, {"q": "In NaCl, sodium becomes…", "o": ["Na⁻, an anion", "Na⁺, a cation", "neutral", "Na²⁺"], "a": 1, "why": "Na loses one electron → Na⁺ (positive ion = cation)."}, {"q": "Ionic materials are typically…", "o": ["soft and ductile conductors", "hard, brittle insulators with high melting points", "liquids at room temperature", "directional"], "a": 1, "why": "Strong non-directional bonds; electrons locked on the ions → insulators."}, {"q": "Ionic bonding requires…", "o": ["a small difference in electronegativity", "a large difference in electronegativity", "identical atoms", "free electrons"], "a": 1, "why": "One atom must strongly want to give and the other strongly want to take."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="covalent">
+  <div class="lvl"><div class="badge g">3</div><h2>Covalent bonding 🤝</h2></div>
+  <p>Happens between <b>nonmetals</b>. They have 4 or more outer electrons. Giving away that many would cost too much energy, and so would grabbing that many. So instead they <b>share</b>.</p>
+  <div class="story"><b>🤝 Picture it</b> Two kids each have half the money for a game. Neither can buy it alone, so they <b>share</b> one copy: it spends time at both houses. In a covalent bond, each atom puts in one electron, and the <b>shared pair</b> spends time around both atoms, holding them together.</div>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 150" role="img" aria-label="Two oxygen atoms sharing electron pairs">
+      <circle cx="250" cy="75" r="60" fill="none" stroke="var(--purple)" stroke-width="2.5"/>
+      <circle cx="390" cy="75" r="60" fill="none" stroke="var(--purple)" stroke-width="2.5"/>
+      <circle cx="250" cy="75" r="20" fill="var(--blue)"/><text x="250" y="81" text-anchor="middle" font-size="14" font-weight="800" style="fill:#fff">O</text>
+      <circle cx="390" cy="75" r="20" fill="var(--blue)"/><text x="390" y="81" text-anchor="middle" font-size="14" font-weight="800" style="fill:#fff">O</text>
+      <g fill="var(--accent)"><circle cx="314" cy="55" r="6"/><circle cx="326" cy="55" r="6"/><circle cx="314" cy="95" r="6"/><circle cx="326" cy="95" r="6"/></g>
+      <text x="320" y="138" text-anchor="middle" font-size="14" font-weight="700" style="fill:var(--accent)">shared electron pairs</text>
+      <text x="60" y="80" font-size="15" font-weight="700">O₂ molecule</text>
+    </svg>
+  </div>
+  <h3>Features of covalent materials</h3>
+  <ol>
+    <li>Often <b>hard</b></li>
+    <li>Inorganic covalent compounds usually have <b>high melting points</b></li>
+    <li>Can be <b>very strong</b> (diamond 💎, the hardest natural material)</li>
+    <li>Can be <b>weak</b> (bismuth, Bi)</li>
+    <li><b>Directional</b>: the shared pair sits between two <i>specific</i> atoms, so bonds point in fixed directions (unlike ionic or metallic)</li>
+  </ol>
+
+  <div class="checkpoint" data-title="Covalent bonding"><script type="application/json">[{"q": "In a covalent bond, electrons are…", "o": ["transferred", "shared", "destroyed", "free to roam everywhere"], "a": 1, "why": "Each atom contributes an electron and the pair is shared."}, {"q": "Which bond type is DIRECTIONAL?", "o": ["Ionic", "Covalent", "Metallic", "None"], "a": 1, "why": "The shared pair sits between two specific atoms, so bonds point in fixed directions."}, {"q": "Diamond is an example of a covalent material that is…", "o": ["very weak", "very strong", "a metal", "liquid"], "a": 1, "why": "Diamond's covalent network makes it extremely strong and hard."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="metallic">
+  <div class="lvl"><div class="badge p">4</div><h2>Metallic bonding 🌊</h2></div>
+  <p>Metal atoms hold their outer (<b>valence</b>) electrons only loosely. In a solid metal, every atom lets go of them, and they form a shared <b>"sea" or "gas" of electrons</b> flowing around all the atoms.</p>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 170" role="img" aria-label="Positive metal ions in a sea of electrons">
+      <rect x="20" y="15" width="600" height="140" rx="16" fill="var(--blue-soft)"/>
+      <g id="ions"></g>
+      <text x="320" y="166" text-anchor="middle" font-size="13" style="fill:var(--muted)">orange = positive metal ions · small blue dots = free electrons (the "glue")</text>
+    </svg>
+  </div>
+  <script>(function(){const g=document.getElementById('ions'),ns='http://www.w3.org/2000/svg';let s=3;const r=()=>{s=(s*9301+49297)%233280;return s/233280};
+    for(let i=0;i<3;i++)for(let j=0;j<11;j++){const c=document.createElementNS(ns,'circle');c.setAttribute('cx',60+j*52);c.setAttribute('cy',45+i*40);c.setAttribute('r',15);c.setAttribute('fill','var(--accent)');g.appendChild(c);
+      const t=document.createElementNS(ns,'text');t.setAttribute('x',60+j*52);t.setAttribute('y',50+i*40);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','14');t.setAttribute('font-weight','800');t.setAttribute('style','fill:#fff');t.textContent='+';g.appendChild(t);}
+    for(let k=0;k<40;k++){const c=document.createElementNS(ns,'circle');c.setAttribute('cx',35+r()*570);c.setAttribute('cy',25+r()*120);c.setAttribute('r',3.5);c.setAttribute('fill','var(--blue)');g.appendChild(c);}})();</script>
+  <p>The bond = the attraction between the <b>positive metal ions</b> and the <b>negative electron sea</b> around them. The sea is the glue.</p>
+  <h3>Features of metallic materials</h3>
+  <ul>
+    <li>⚡🔥 <b>Great conductors</b> of electricity and heat: the free electrons carry it</li>
+    <li>✨ <b>Opaque</b> and shiny</li>
+    <li>🪝 Relatively <b>ductile</b>: atoms can slide over each other and the sea keeps holding them</li>
+    <li>📦 <b>High packing density</b> (you'll see why in Lecture 4)</li>
+    <li>Generally <b>weaker</b> than ionic and covalent bonds</li>
+    <li>Always <b>crystalline</b></li>
+  </ul>
+
+  <div class="checkpoint" data-title="Metallic bonding"><script type="application/json">[{"q": "In metallic bonding, valence electrons…", "o": ["are locked to one atom", "form a free \"electron gas\" around positive ions", "are shared in pairs only", "leave the metal"], "a": 1, "why": "The electron sea is the glue holding the positive ions together."}, {"q": "Why are metals good conductors of electricity and heat?", "o": ["they are heavy", "their free valence electrons can move", "they are shiny", "they are crystalline"], "a": 1, "why": "Free electrons carry both current and heat."}, {"q": "Compared to ionic and covalent bonds, metallic bonds are generally…", "o": ["stronger", "weaker", "the same", "secondary bonds"], "a": 1, "why": "The slides note metallic bonds are weaker than ionic and covalent."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<div class="tutbanner" id="sec2"><span class="tag">TUTORIAL</span><div><b>Section 2: Bonding forces &amp; energies</b><br><span class="small">Everything from the Section 2 assignment, explained from scratch. Rusty on derivatives? Open the <a href="toolkit.html">math toolkit</a> in another tab.</span></div></div>
+
+<section class="level" style="margin-top:20px">
+  <div class="lvl"><div class="badge">5</div><h2>Bonding forces &amp; energies</h2></div>
+  <div class="story"><b>💃 Picture this</b> Two atoms are like two dancers holding hands with a spring between them. Drift too far apart and the hands <b>pull</b> them back (<b>attraction</b>). Get too close and they bump (their electron clouds, both negative, <b>push</b> each other away: <b>repulsion</b>). There's one perfect distance where pull and push cancel. That distance is <b>r₀</b>.</div>
+
+  <h3>The two forces</h3>
+  <ul>
+    <li><b>Attractive force F<sub>A</sub></b>: depends on the <i>type</i> of bond (ionic, covalent, metallic). The "pull".</li>
+    <li><b>Repulsive force F<sub>R</sub></b>: from the two negative electron clouds overlapping. The "push". Only matters when atoms are <i>really</i> close.</li>
+  </ul>
+  <div class="math big">F<sub>N</sub> = F<sub>A</sub> + F<sub>R</sub></div>
+  <p>The <b>net</b> force F<sub>N</sub> is just the total. At the equilibrium spacing r₀ they cancel exactly:</p>
+  <div class="math big">at r = r₀ : &nbsp; F<sub>A</sub> + F<sub>R</sub> = 0</div>
+  <p class="small">For many atoms, r₀ ≈ 0.3 nm.</p>
+
+  <h3>From force to energy</h3>
+  <p>Energy and force describe the same thing in two ways. The slides write <span class="m">E = ∫F dr</span>, which means the force is the <b>slope</b> of the energy curve. Energies add the same way:</p>
+  <div class="math big">E<sub>N</sub> = E<sub>A</sub> + E<sub>R</sub></div>
+  <div class="tip"><b>🏞 Think of a valley</b>
+  Plot energy against distance and you get a valley shape. A ball dropped anywhere on it rolls to the bottom and stays there. The bottom is where the atoms "want" to be:
+  <br>• Its <b>position</b> (left–right) is <b>r₀</b>, the equilibrium spacing.
+  <br>• Its <b>depth</b> is <b>E₀</b>, the <b>bonding energy</b>: the energy needed to pull the two atoms completely apart.
+  <br>• At the bottom the ground is flat → slope = 0 → <b>force = 0</b>. The same fact as F<sub>A</sub> + F<sub>R</sub> = 0, seen from the energy side!
+  <br>• The slides' blank: the most stable state is where the energy is <b>lowest</b>.</div>
+
+  <h3>🎮 Play with it: drag the slider to move the ions</h3>
+  <div class="card">
+    <canvas id="bondCanvas" width="800" height="440" data-mobile-ar="1.2" aria-label="Energy versus distance curve"></canvas>
+    <input type="range" id="rSlider" min="0.22" max="0.8" step="0.002" value="0.5" aria-label="Distance between ions">
+    <div class="readout" id="bondReadout"></div>
+    <div class="small">Real numbers for a K⁺–Cl⁻ pair: A = 1.436 eV·nm, B = 5.86×10⁻⁶ eV·nm⁹, n = 9. <span style="color:var(--accent)">Orange</span> = attraction energy E<sub>A</sub>, <span style="color:var(--blue)">blue</span> = repulsion energy E<sub>R</sub>, <span style="color:var(--green)">green</span> = their sum E<sub>N</sub>.</div>
+  </div>
+
+  <h3>📝 Example 1: Find r₀ and E₀ (the big one)</h3>
+  <p>We're given the net energy (Eq. 2.17), the sum of E<sub>A</sub> = −A/r (Eq. 2.9) and E<sub>R</sub> = B/rⁿ (Eq. 2.11):</p>
+  <div class="math big">E<sub>N</sub> = −<span class="frac"><span>A</span><span>r</span></span> + <span class="frac"><span>B</span><span>r<sup>n</sup></span></span></div>
+  <p>The negative part is attraction, the positive part is repulsion. A, B and n are just constants for the material. Treat them like ordinary numbers.</p>
+  <ol class="steps">
+    <li><b>Rewrite with negative powers</b> (Tool 1):
+      <div class="math">E<sub>N</sub> = −A·r<sup>−1</sup> + B·r<sup>−n</sup></div></li>
+    <li><b>(a) Differentiate</b> term by term (Tool 2: bring the power down, subtract 1):
+      <div class="math"><span class="frac"><span>dE<sub>N</sub></span><span>dr</span></span> = A·r<sup>−2</sup> − nB·r<sup>−n−1</sup> = <span class="frac"><span>A</span><span>r<sup>2</sup></span></span> − <span class="frac"><span>nB</span><span>r<sup>n+1</sup></span></span> = F<sub>N</sub></div></li>
+    <li><b>Set it equal to zero</b> (bottom of the valley), calling that special r "r₀":
+      <div class="math"><span class="frac"><span>A</span><span>r₀<sup>2</sup></span></span> = <span class="frac"><span>nB</span><span>r₀<sup>n+1</sup></span></span></div></li>
+    <li><b>Collect the r₀'s on one side</b>: multiply both sides by r₀², divide by nB (Tool 3):
+      <div class="math"><span class="frac"><span>A</span><span>nB</span></span> = <span class="frac"><span>r₀<sup>2</sup></span><span>r₀<sup>n+1</sup></span></span> = r₀<sup>2−(n+1)</sup> = r₀<sup>1−n</sup></div></li>
+    <li><b>(b) Undo the power</b> by raising both sides to 1/(1−n):
+      <div class="math big">r₀ = <span style="font-size:1.3em">(</span><span class="frac"><span>A</span><span>nB</span></span><span style="font-size:1.3em">)</span><sup>1/(1−n)</sup></div></li>
+    <li><b>(c) Plug r₀ back into E<sub>N</sub></b> to get the depth of the valley:
+      <div class="math">E₀ = −<span class="frac"><span>A</span><span>(A/nB)<sup>1/(1−n)</sup></span></span> + <span class="frac"><span>B</span><span>(A/nB)<sup>n/(1−n)</sup></span></span></div>
+      Done! 🎯</li>
+  </ol>
+  <div class="tip"><b>🎁 Bonus: a cleaner way to write E₀</b>
+  From step 3, <span class="m">B/r₀<sup>n</sup> = A/(n·r₀)</span>. Substitute that in and it simplifies to
+  <div class="math">E₀ = −<span class="frac"><span>A</span><span>r₀</span></span><span style="font-size:1.2em">(</span>1 − <span class="frac"><span>1</span><span>n</span></span><span style="font-size:1.2em">)</span></div>
+  For K⁺–Cl⁻: r₀ = (1.436 / (9 × 5.86×10⁻⁶))<sup>1/(1−9)</sup> ≈ <b>0.279 nm</b> and E₀ ≈ −(1.436/0.279)(8/9) ≈ <b>−4.57 eV</b>. Check it with the slider above: the bottom of the green valley sits right there.</div>
+
+  <h3>📝 Example 2: Bonding energy vs melting temperature</h3>
+  <p><b>Question:</b> plot bonding energy against melting temperature for the metals in Table 2.3, then estimate copper's bonding energy (copper melts at 1085 °C).</p>
+  <div class="tablewrap"><table>
+    <tr><th>Metal</th><th>Bonding energy (kJ/mol)</th><th>Melting temp (°C)</th></tr>
+    <tr><td>Hg (mercury)</td><td>62</td><td>−39</td></tr>
+    <tr><td>Al (aluminum)</td><td>330</td><td>660</td></tr>
+    <tr><td>Ag (silver)</td><td>285</td><td>962</td></tr>
+    <tr><td>W (tungsten)</td><td>850</td><td>3414</td></tr>
+  </table></div>
+  <div class="card">
+    <canvas id="meltCanvas" width="800" height="420" data-mobile-ar="0.95" aria-label="Bonding energy versus melting temperature plot"></canvas>
+    <input type="range" id="meltSlider" min="-200" max="3600" step="5" value="1085" aria-label="Melting temperature">
+    <div class="readout" id="meltReadout"></div>
+    <div class="small">🎮 Drag the slider to read the line at any temperature. Put it back on 1085 for copper.</div>
+  </div>
+  <ol class="steps">
+    <li>Melting temperature on the x-axis, bonding energy on the y-axis. Plot the 4 points.</li>
+    <li>Draw the best straight line. They roughly line up: <b>stronger bonds → higher melting point</b>. To melt something you must shake the atoms loose from each other.</li>
+    <li>Go to 1085 °C, up to the line, across to the axis: <b>≈ 345 kJ/mol</b> for copper. ✅</li>
+  </ol>
+  <div class="tip"><b>Fun fact</b> Mercury's bonds are so weak it's a liquid at room temperature. Tungsten's are so strong it was used for light-bulb filaments that glow white-hot without melting.</div>
+
+  <div class="checkpoint" data-title="Section 2: forces &amp; energies"><script type="application/json">[{"q": "At the equilibrium spacing r₀, the net force F<sub>N<\/sub> is…", "o": ["maximum", "zero", "negative infinity", "equal to E₀"], "a": 1, "why": "F<sub>A<\/sub> + F<sub>R<\/sub> = 0: attraction and repulsion cancel exactly."}, {"q": "E₀ (the bonding energy) is…", "o": ["the energy at r = 0", "the energy needed to separate the two atoms completely", "always positive", "the repulsive energy"], "a": 1, "why": "It's the depth of the energy valley: what you'd pay to pull the atoms apart."}, {"q": "To find r₀ from E<sub>N<\/sub> = −A/r + B/rⁿ, you…", "o": ["set E<sub>N<\/sub> = 0", "set dE<sub>N<\/sub>/dr = 0 and solve for r", "multiply A by B", "set r = 1"], "a": 1, "why": "The minimum of the curve is where its slope (derivative) is zero."}, {"q": "d/dr (−A/r) = ?", "o": ["−A/r²", "A/r²", "−A", "A·r"], "a": 1, "why": "−A·r<sup>−1<\/sup> → (−A)(−1)r<sup>−2<\/sup> = +A/r²."}, {"q": "Copper melts at 1085 °C. Using the plot, its bonding energy is about…", "o": ["62 kJ/mol", "345 kJ/mol", "850 kJ/mol", "1085 kJ/mol"], "a": 1, "why": "Reading the best-fit line at 1085 °C gives ≈ 345 kJ/mol."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="props">
+  <div class="lvl"><div class="badge b">6</div><h2>What the energy curve tells an engineer</h2></div>
+  <p>The <b>shape</b> of the valley predicts real properties. This is the end of Lecture 3:</p>
+  <div class="grid2">
+    <div class="card"><h4>🌡 Melting temperature T<sub>m</sub></h4>A <b>deeper</b> valley (larger E₀) means the atoms are harder to separate.<br><b>Larger E₀ → higher T<sub>m</sub>.</b><br><span class="small">That's exactly what Example 2 showed.</span></div>
+    <div class="card"><h4>📏 Thermal expansion α<sub>ℓ</sub></h4>Heat makes atoms vibrate. The valley is lopsided (steep on the left, gentle on the right), so vibrating atoms drift <b>outward</b> → the material grows.<br><b>Deep, narrow valley → small α<sub>ℓ</sub></b> (barely expands).<br><b>Smaller E₀ → larger α<sub>ℓ</sub>.</b></div>
+  </div>
+  <div class="math">Thermal expansion: &nbsp;<span class="frac"><span>ΔL</span><span>L₀</span></span> = α<sub>ℓ</sub> (T₂ − T₁)</div>
+  <p class="small">ΔL = change in length, L₀ = original length, T₂ − T₁ = temperature change.</p>
+  <h3>Summary: properties by material family</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Family</th><th>Bonding</th><th>Bond energy</th><th>T<sub>m</sub></th><th>Stiffness E</th><th>α<sub>ℓ</sub></th></tr>
+    <tr><td><b>Ceramics</b></td><td>ionic &amp; covalent</td><td>large</td><td>high</td><td>large</td><td><b>low</b></td></tr>
+    <tr><td><b>Metals</b></td><td>metallic</td><td>variable</td><td><b>variable</b></td><td><b>variable</b></td><td>moderate</td></tr>
+    <tr><td><b>Polymers</b></td><td>covalent + secondary</td><td>weak (between chains)</td><td>low</td><td><b>low</b></td><td>large</td></tr>
+  </table></div>
+  <p>For polymers, the weak secondary bonds between chains control most physical properties (remember the spaghetti 🍝).</p>
+
+  <div class="checkpoint" data-title="Properties from the energy curve"><script type="application/json">[{"q": "A material with a LARGER bonding energy E₀ usually has…", "o": ["a lower melting point", "a higher melting point", "no melting point", "a melting point of 0 °C"], "a": 1, "why": "Deeper valley → harder to shake atoms apart → higher T<sub>m<\/sub>."}, {"q": "A deep and narrow energy trough gives a ___ coefficient of thermal expansion.", "o": ["low", "high", "negative", "infinite"], "a": 0, "why": "Large bonding energy → deep, narrow, more symmetric trough → small α<sub>ℓ<\/sub>."}, {"q": "Which family typically has LOW melting points and LARGE thermal expansion?", "o": ["Ceramics", "Metals", "Polymers", "Diamonds"], "a": 2, "why": "Polymers' properties are controlled by weak secondary bonds between chains."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+
+<section class="level" id="summary">
+  <div class="lvl"><div class="badge p">★</div><h2>Summary</h2></div>
+  <div class="summary"><b>If you remember only these points, you're in great shape:</b><ul>
+    <li>Atoms bond to get a <b>full outer shell</b>: <b>give/take</b> (ionic), <b>share</b> (covalent) or <b>pool</b> into an electron sea (metallic).</li>
+    <li><b>Ionic</b> (metal + nonmetal, large electronegativity difference): strong, non-directional, hard, brittle, insulating, high T<sub>m</sub>. Typical of <b>ceramics</b>. E.g. NaCl, MgO.</li>
+    <li><b>Covalent</b> (nonmetals share pairs): <b>directional</b>, often hard; can be very strong (diamond) or weak (bismuth).</li>
+    <li><b>Metallic</b> (positive ions in an electron gas): good conductors, opaque, ductile, densely packed, crystalline.</li>
+    <li><b>F<sub>N</sub> = F<sub>A</sub> + F<sub>R</sub></b>, <b>E<sub>N</sub> = E<sub>A</sub> + E<sub>R</sub></b>. At <b>r₀</b>: F<sub>N</sub> = 0 and E<sub>N</sub> is at its minimum, <b>E₀</b>.</li>
+    <li><b>Section 2:</b> E<sub>N</sub> = −A/r + B/rⁿ → set dE<sub>N</sub>/dr = 0 → <b>r₀ = (A/nB)<sup>1/(1−n)</sup></b> → E₀ = −(A/r₀)(1 − 1/n).</li>
+    <li><b>Section 2:</b> plotting bonding energy vs melting point gives roughly a straight line; copper (1085 °C) ≈ <b>345 kJ/mol</b>.</li>
+    <li><b>Larger E₀ → higher melting point, smaller thermal expansion.</b> Ceramics: large E₀; metals: variable; polymers: weak bonds, low T<sub>m</sub>.</li>
+  </ul></div>
+</section>
+<section class="level" id="check">
+  <div class="lvl"><div class="badge g">✓</div><h2>Check yourself</h2></div>
+  <details class="quiz"><summary>Na + Cl: which bond type, and who gives the electron?</summary><div><b>Ionic.</b> Sodium (metal) gives one electron to chlorine (nonmetal).</div></details>
+  <details class="quiz"><summary>Which bond type is directional?</summary><div><b>Covalent</b>: the shared pair sits between two specific atoms.</div></details>
+  <details class="quiz"><summary>Why do metals conduct electricity?</summary><div>Their valence electrons form a free-moving "sea" that can carry current.</div></details>
+  <details class="quiz"><summary>At r₀, what is the net force between the two atoms?</summary><div><b>Zero.</b> Attraction and repulsion cancel, which is also the bottom of the energy valley where the slope is zero.</div></details>
+  <details class="quiz"><summary>What does E₀ physically mean?</summary><div>The <b>bonding energy</b>: the energy needed to pull the two atoms completely apart. Deeper valley = stronger bond.</div></details>
+  <details class="quiz"><summary>Why do we set dE<sub>N</sub>/dr = 0?</summary><div>The minimum of a curve is where its slope is zero, and the minimum of the energy curve is the stable equilibrium position.</div></details>
+  <details class="quiz"><summary>Material X has bonding energy 600 kJ/mol. Higher or lower melting point than aluminum?</summary><div><b>Higher.</b> Use the slider in Example 2: it lands around 2200 °C.</div></details>
+  <details class="quiz"><summary>Ceramics barely expand when heated. Why?</summary><div>They have large bonding energies, so a deep, narrow energy valley → low coefficient of thermal expansion.</div></details>
+  <div class="key"><b>🧠 One-line summary</b> Atoms bond by giving (ionic), sharing (covalent) or pooling (metallic) electrons. Attraction and repulsion balance at r₀, and the depth of the energy valley (E₀) predicts melting point and thermal expansion.</div>
+</section>
+
+<div id="pager"></div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture 1 · Introduction · ECB2501</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.bars{margin-top:8px}
+.barrow{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;margin:10px 0}
+.barrow .lbl{font-weight:700;font-size:15px}
+.track{position:relative;height:30px;background:var(--code);border-radius:8px}
+.range{position:absolute;top:4px;bottom:4px;border-radius:6px;display:flex;align-items:center;padding:0 8px;font-size:12px;font-weight:700;color:#fff;white-space:nowrap;transition:left .4s,width .4s}
+.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-left:120px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">Lecture 1</div>
+  <h1>Introduction to Materials Science 🧱</h1>
+  <p><b>Relax:</b> this lecture has no equations at all. It's the "story" of the course. Read it like a magazine article.</p>
+</header>
+
+<div class="toc"><b>On this page</b><ol>
+  <li><a href="#course">How the course works</a></li>
+  <li><a href="#history">Materials made history</a></li>
+  <li><a href="#sci-eng">Science vs Engineering</a></li>
+  <li><a href="#structure">What "structure" means</a></li>
+  <li><a href="#property">The 6 families of properties</a></li>
+  <li><a href="#why">Why study this? (Liberty ships)</a></li>
+  <li><a href="#types">Crystalline vs amorphous &amp; the 4 material families</a></li>
+  <li><a href="#check">Check yourself</a></li>
+</ol></div>
+
+<section class="level" id="course">
+  <div class="lvl"><div class="badge y">0</div><h2>How the course works</h2></div>
+  <div class="tablewrap"><table>
+    <tr><th>Thing</th><th>Details</th></tr>
+    <tr><td>Course</td><td>ECB2501, Material Science &amp; Properties</td></tr>
+    <tr><td>Length</td><td>15 weeks of lectures + tutorials</td></tr>
+    <tr><td>Lecture</td><td>Monday, 12:30 – 2:00, Room 400</td></tr>
+    <tr><td>Textbook</td><td><i>Materials Science and Engineering: An Introduction</i>, Callister &amp; Rethwisch, 10th ed.</td></tr>
+    <tr><td>Chapters used</td><td>1, 2, 3, 4, 6, 8, 14, 16, 19</td></tr>
+  </table></div>
+  <h3>Grades (out of 100)</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Item</th><th>Points</th></tr>
+    <tr><td>Quiz 1 (week 5)</td><td>5</td></tr>
+    <tr><td>Midterm 1 (week 7)</td><td>20</td></tr>
+    <tr><td>Quiz 2 (week 10)</td><td>5</td></tr>
+    <tr><td>Midterm 2 (week 12)</td><td>10</td></tr>
+    <tr><td>Assignments, classwork, reports, oral exams</td><td>20 (+ bonus)</td></tr>
+    <tr><td><b>Final exam</b></td><td><b>40</b></td></tr>
+  </table></div>
+  <div class="tip"><b>💡 What this means for you</b> 60% of the grade is collected <i>during</i> the term. Doing the weekly assignments steadily is the easiest way to protect your grade, and there's a weekly assignment due every next session.</div>
+  <h3>The road map</h3>
+  <pre class="ascii">Week 1      Intro (this lecture)
+Week 2      Atoms &amp; bonding            ← Lectures 2 &amp; 3 (+ Section 2)
+Week 3–4    Crystal structures          ← Lecture 4 (+ Sections 3 &amp; 4)
+Week 5      Imperfections in solids
+Week 6–9    Mechanical properties (stress, strain, shear, torsion, hardness)
+Week 10–11  Failure &amp; fracture
+Week 12     Polymers
+Week 13     Composites
+Week 14     Thermal properties
+Week 15     Review</pre>
+  <p>Notice the logic: we go from <b>tiny</b> (atoms) → <b>small</b> (crystals) → <b>big</b> (how a whole beam behaves). Everything later builds on the first four lectures, so they're worth getting solid now.</p>
+</section>
+
+<section class="level" id="history">
+  <div class="lvl"><div class="badge">1</div><h2>Materials made history 🏺⚔️</h2></div>
+  <p>We name ancient times after materials: the <b>Stone Age</b>, the <b>Bronze Age</b>, the <b>Iron Age</b>. Whole civilizations are named after the best material they had!</p>
+  <ul>
+    <li>The earliest humans only had natural materials: <b>stone, wood, clay, skins</b>.</li>
+    <li>Then people discovered you can <b>change</b> a material's properties by <b>heating</b> it or <b>mixing in</b> other substances (that's how bronze and steel were born).</li>
+    <li>Only recently did scientists understand <b>why</b> this works: properties come from the material's <b>internal structure</b>.</li>
+  </ul>
+  <p>Every big technology needed a materials breakthrough first: 🚗 cars needed <b>cheap steel</b>; 📱 phones and computers need <b>semiconductors</b>.</p>
+</section>
+
+<section class="level" id="sci-eng">
+  <div class="lvl"><div class="badge b">2</div><h2>Materials Science vs Materials Engineering</h2></div>
+  <div class="tablewrap"><table>
+    <tr><th></th><th>Materials Science</th><th>Materials Engineering</th></tr>
+    <tr><td>Asks</td><td>"<b>Why</b> does this material behave like this?"</td><td>"<b>How</b> do I make it behave the way I need?"</td></tr>
+    <tr><td>Studies</td><td>The link between <b>structure</b> and <b>properties</b></td><td><b>Designing</b> the structure to get chosen properties</td></tr>
+    <tr><td>Role</td><td>Develops <b>new</b> materials</td><td>Builds <b>products</b> from existing materials and develops processing methods</td></tr>
+  </table></div>
+  <div class="key"><b>🔑 The one sentence to remember</b> <span style="font-size:20px"><b>Structure → Properties.</b></span> Change what's inside, and you change how it behaves.</div>
+
+  <div class="checkpoint" data-title="Course, history, science vs engineering"><script type="application/json">[{"q": "How much of the final grade is the final exam?", "o": ["20%", "40%", "60%", "100%"], "a": 1, "why": "Coursework (quizzes, midterms, assignments) is 60%, and the final exam is 40%."}, {"q": "Materials <b>science<\/b> mainly studies…", "o": ["how much materials cost", "the link between structure and properties", "how to build bridges", "only metals"], "a": 1, "why": "Science asks <i>why<\/i>: how the structure inside a material causes its properties."}, {"q": "A materials <b>engineer<\/b>…", "o": ["only discovers new elements", "designs the structure of a material to get the properties needed", "never uses existing materials", "studies history"], "a": 1, "why": "Engineering uses structure–property knowledge to design materials and products."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="structure">
+  <div class="lvl"><div class="badge g">3</div><h2>What does "structure" mean?</h2></div>
+  <p>"Structure" = <b>how the inside is arranged</b>. We can zoom in at different levels, like Google Maps zooming from a country down to a single house:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Level</th><th>Size</th><th>What you see</th></tr>
+    <tr><td><b>Subatomic</b></td><td>inside one atom</td><td>electrons and the nucleus, their energies</td></tr>
+    <tr><td><b>Atomic</b></td><td>~0.1 nm</td><td>how atoms organise into molecules or crystals</td></tr>
+    <tr><td><b>Nano</b></td><td>&lt; ~100 nm</td><td>tiny particles made of groups of atoms</td></tr>
+    <tr><td><b>Micro</b></td><td>100 nm → a few mm</td><td>features seen with a microscope 🔬 (e.g. grains)</td></tr>
+    <tr><td><b>Macro</b></td><td>a few mm → ~1 m</td><td>things you see with your eyes 👀</td></tr>
+  </table></div>
+  <p class="small">1 nm = one billionth of a metre. A human hair is about 80,000 nm thick.</p>
+</section>
+
+<section class="level" id="property">
+  <div class="lvl"><div class="badge p">4</div><h2>What is a "property"?</h2></div>
+  <p>A <b>property</b> = how a material <b>responds</b> when you do something to it. You <b>poke</b> it (a stimulus), it <b>reacts</b> (a response). Properties don't depend on the size or shape of the piece.</p>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Family</th><th>You do this…</th><th>Examples</th></tr>
+    <tr><td>1</td><td><b>Mechanical</b> 💪</td><td>apply a load/force</td><td>stiffness (elastic modulus), strength, fracture resistance</td></tr>
+    <tr><td>2</td><td><b>Electrical</b> ⚡</td><td>apply an electric field</td><td>conductivity, dielectric constant</td></tr>
+    <tr><td>3</td><td><b>Thermal</b> 🔥</td><td>change the temperature</td><td>thermal expansion, heat capacity</td></tr>
+    <tr><td>4</td><td><b>Magnetic</b> 🧲</td><td>apply a magnetic field</td><td>magnetization, susceptibility</td></tr>
+    <tr><td>5</td><td><b>Optical</b> 💡</td><td>shine light on it</td><td>refractive index, reflectivity</td></tr>
+    <tr><td>6</td><td><b>Deteriorative</b> 🧪</td><td>expose to chemicals</td><td>corrosion resistance (rust!)</td></tr>
+  </table></div>
+  <div class="tip"><b>🧠 Memory trick</b> "<b>M</b>y <b>E</b>ngineer <b>T</b>eacher <b>M</b>akes <b>O</b>ld <b>D</b>esigns": Mechanical, Electrical, Thermal, Magnetic, Optical, Deteriorative.</div>
+
+  <div class="checkpoint" data-title="Structure &amp; properties"><script type="application/json">[{"q": "Grains you can see with a microscope (100 nm to a few mm) belong to which structure level?", "o": ["Subatomic", "Atomic", "Microstructure", "Macrostructure"], "a": 2, "why": "Features seen with a microscope, 100 nm to a few mm, are the microstructure."}, {"q": "Corrosion resistance belongs to which property family?", "o": ["Mechanical", "Optical", "Thermal", "Deteriorative"], "a": 3, "why": "Deteriorative properties are about chemical reactivity, like rusting."}, {"q": "Stiffness and strength are…", "o": ["mechanical properties", "electrical properties", "magnetic properties", "optical properties"], "a": 0, "why": "Mechanical properties relate deformation to an applied load."}, {"q": "Thermal expansion is caused by…", "o": ["an electric field", "a change in temperature", "light", "a magnetic field"], "a": 1, "why": "Thermal properties respond to temperature changes."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="why">
+  <div class="lvl"><div class="badge">5</div><h2>Why should you care?</h2></div>
+  <p>Simple: <b>everything you design is made of a material</b>: a beam, a bridge cable, a column, a pipe. When choosing, an engineer asks three questions:</p>
+  <ol class="steps">
+    <li><b>What conditions will it face?</b> (loads, temperature, weather) → tells you the properties you need.</li>
+    <li><b>Will it get worse over time?</b> (rust, cracks, wear)</li>
+    <li><b>How much will it cost?</b> 💰 Often the deciding factor. A perfect material is useless if it's too expensive.</li>
+  </ol>
+  <h3>⚠️ Wrong material = disaster: the Liberty ships</h3>
+  <p>In World War II, the USA built thousands of cargo ships very fast by <b>welding</b> steel plates. Some of them <b>cracked in half</b>, a few while still in the harbour! Why?</p>
+  <ul>
+    <li>🥶 <b>Cold made the steel brittle.</b> Steel that bends nicely at room temperature can snap like glass in the cold (the <i>ductile-to-brittle transition</i>). They sailed in the freezing North Atlantic.</li>
+    <li>⬛ <b>Square hatch corners</b> concentrated stress, and cracks started there.</li>
+    <li>🔥 <b>Welding</b> made the hull one continuous piece, so a crack could run all the way around. (With rivets, a crack stops at the plate edge.)</li>
+    <li>👷 Inexperienced welders left defects.</li>
+  </ul>
+  <p><b>The fixes:</b> better steel (less sulfur and phosphorus), <b>rounded</b> corners, crack-arresting straps, better welding.</p>
+  <div class="key"><b>🎯 Lesson</b> Knowing how your material behaves isn't optional. It can decide whether a structure is safe.</div>
+
+  <h3>Same material, different structure → different property</h3>
+  <p>Three disks, <b>all aluminum oxide</b>, placed over printed text:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Disk</th><th>Inside</th><th>Result</th></tr>
+    <tr><td>1</td><td>one <b>single crystal</b></td><td><b>Transparent</b> (text is clear)</td></tr>
+    <tr><td>2</td><td>many tiny crystals stuck together</td><td><b>Translucent</b> (blurry)</td></tr>
+    <tr><td>3</td><td>tiny crystals + many tiny <b>pores</b> (holes)</td><td><b>Opaque</b> (can't see through)</td></tr>
+  </table></div>
+  <p>Same chemistry, different structure, different optical property. <b>Structure → Properties</b> in action! 🎉</p>
+
+  <div class="checkpoint" data-title="Choosing materials &amp; the Liberty ships"><script type="application/json">[{"q": "What is often the deciding factor when choosing a material?", "o": ["its colour", "its cost", "its name", "its age"], "a": 1, "why": "A perfect material is useless if it's too expensive. Economics usually decides."}, {"q": "Why did some Liberty ships crack in half?", "o": ["the steel became brittle in cold water", "they were made of wood", "they were too light", "the paint was wrong"], "a": 0, "why": "The steel went through a ductile-to-brittle transition at low temperature, with help from square corners and welded hulls."}, {"q": "Three aluminum-oxide disks: one single crystal, one many tiny crystals, one with tiny pores. Which is transparent?", "o": ["the one with pores", "the single crystal", "the many tiny crystals", "all of them"], "a": 1, "why": "The single crystal is transparent. Same chemistry, different structure → different optical property."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="types">
+  <div class="lvl"><div class="badge b">6</div><h2>Types of materials</h2></div>
+  <h3>Crystalline vs amorphous (a sneak peek of Lecture 4)</h3>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 190" role="img" aria-label="Ordered crystalline atoms vs random amorphous atoms">
+      <text x="40" y="22" font-size="16" font-weight="700">Crystalline (ordered)</text>
+      <g fill="var(--accent)" fill-opacity=".8" id="cr"></g>
+      <text x="370" y="22" font-size="16" font-weight="700">Amorphous (random)</text>
+      <g fill="var(--blue)" fill-opacity=".8" id="am"></g>
+    </svg>
+  </div>
+  <script>
+    (function(){const ns='http://www.w3.org/2000/svg',cr=document.getElementById('cr'),am=document.getElementById('am');
+      for(let i=0;i<6;i++)for(let j=0;j<7;j++){const c=document.createElementNS(ns,'circle');c.setAttribute('cx',52+j*34+(i%2)*17);c.setAttribute('cy',48+i*25);c.setAttribute('r',12);cr.appendChild(c);}
+      let s=7;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};
+      for(let k=0;k<38;k++){const c=document.createElementNS(ns,'circle');c.setAttribute('cx',380+rnd()*230);c.setAttribute('cy',45+rnd()*130);c.setAttribute('r',12);am.appendChild(c);}})();
+  </script>
+  <ul>
+    <li><b>Crystalline:</b> atoms in a <b>neat repeating pattern</b> over long distances. <b>All metals and alloys</b> are crystalline: iron, steel, copper, brass, bronze, aluminum…</li>
+    <li><b>Amorphous:</b> <b>no</b> regular pattern. Example: <b>glass</b>.</li>
+  </ul>
+  <p>Think: a crystal is soldiers in a parade; amorphous is a crowd at a concert.</p>
+
+  <h3>The 4 families of engineering materials</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Family</th><th>Examples</th><th>Typical behaviour</th></tr>
+    <tr><td><b>Metals</b></td><td>steel, aluminum, copper, titanium</td><td>strong, stiff, <b>ductile</b> (bend before breaking), conduct electricity &amp; heat, heavy</td></tr>
+    <tr><td><b>Ceramics</b></td><td>glass, concrete, oxides, porcelain</td><td>very stiff &amp; hard, heat-resistant, but <b>brittle</b> (shatter), insulators</td></tr>
+    <tr><td><b>Polymers</b></td><td>PVC, nylon, polyethylene, rubber</td><td>light, flexible, cheap; low stiffness and low melting point</td></tr>
+    <tr><td><b>Composites</b></td><td>fibreglass (GFRC), carbon fibre (CFRC), wood, <b>reinforced concrete</b></td><td>a mix of two or more, giving the <b>best of both</b></td></tr>
+  </table></div>
+  <p>Composites live in the overlaps: metal–ceramic, metal–polymer, ceramic–polymer. 🏗 Reinforced concrete is the one you'll meet most as a construction engineer: concrete (great when squeezed) + steel bars (great when pulled).</p>
+  <p>Polymers (plastics) also split into <b>thermoplastics</b> (melt and reshape: acrylics, nylon, PVC), <b>thermosets</b> (set permanently: epoxies) and <b>elastomers</b> (stretchy: rubbers, silicones). Metals split into <b>ferrous</b> (contain iron: steels, cast iron) and <b>non-ferrous</b> (aluminum, copper, titanium).</p>
+
+  <h3>🎮 Compare the families (tap a property)</h3>
+  <div class="card">
+    <div class="controls" id="propBtns">
+      <button class="chip on" data-p="density">Density</button>
+      <button class="chip" data-p="stiff">Stiffness</button>
+      <button class="chip" data-p="strength">Strength</button>
+      <button class="chip" data-p="tough">Toughness</button>
+    </div>
+    <div class="bars" id="bars"></div>
+    <div class="scale" id="scale"></div>
+    <p class="readout" id="propNote"></p>
+    <p class="small">Bars show the typical range for each family, read from the comparison charts in the lecture. The scale is logarithmic: every tick is ×10.</p>
+  </div>
+  <script>
+  (function(){
+    const P={
+      density:{unit:'g/cm³',min:0.1,max:40,d:{Metals:[1.7,21.5],Ceramics:[2.3,6],Polymers:[0.9,2.2],Composites:[0.4,2.1]},note:'Metals are the heaviest (platinum, silver, steel). Polymers and wood are the lightest.'},
+      stiff:{unit:'GPa',min:0.001,max:1000,d:{Metals:[45,400],Ceramics:[30,450],Polymers:[0.002,4],Composites:[10,200]},note:'Metals and ceramics are stiff. Polymers are floppy (rubber is super floppy!).'},
+      strength:{unit:'MPa',min:5,max:5000,d:{Metals:[70,2000],Ceramics:[40,1500],Polymers:[10,100],Composites:[20,2000]},note:'Metals and composites are the strongest. Polymers are the weakest.'},
+      tough:{unit:'MPa√m',min:0.1,max:300,d:{Metals:[20,150],Ceramics:[0.2,6],Polymers:[0.7,5],Composites:[1,60]},note:'⚠️ Ceramics are stiff and strong but NOT tough: they crack easily. That is why concrete needs steel reinforcement!'}
+    };
+    const COL={Metals:'var(--accent)',Ceramics:'var(--blue)',Polymers:'var(--green)',Composites:'var(--purple)'};
+    const bars=document.getElementById('bars'),scale=document.getElementById('scale'),note=document.getElementById('propNote');
+    bars.innerHTML=Object.keys(COL).map(k=>'<div class="barrow"><span class="lbl">'+k+'</span><div class="track"><div class="range" id="r-'+k+'" style="background:'+COL[k]+'"></div></div></div>').join('');
+    function show(p){const o=P[p],L=v=>(Math.log10(v)-Math.log10(o.min))/(Math.log10(o.max)-Math.log10(o.min))*100;
+      Object.entries(o.d).forEach(([k,[a,b]])=>{const el=document.getElementById('r-'+k);el.style.left=L(a)+'%';el.style.width=Math.max(L(b)-L(a),4)+'%';el.textContent=a+'–'+b;});
+      const ticks=[];for(let e=Math.ceil(Math.log10(o.min));e<=Math.floor(Math.log10(o.max));e++)ticks.push(10**e);
+      scale.innerHTML='<span>'+o.min+' '+o.unit+'</span><span>'+o.max+' '+o.unit+'</span>';
+      note.textContent=o.note;}
+    document.querySelectorAll('#propBtns .chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#propBtns .chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');show(b.dataset.p);}));
+    show('density');
+  })();
+  </script>
+
+  <h3>The future: advanced materials &amp; modern needs</h3>
+  <div class="grid2">
+    <div class="card"><h4>Advanced materials</h4>• <b>Semiconductors</b>: chips, solar panels<br>• <b>Biomaterials</b>: implants in the body<br>• <b>Smart materials</b>: react to their environment<br>• <b>Nanomaterials</b>: engineered at the nanoscale</div>
+    <div class="card"><h4>What modern engineering needs</h4>✅ High performance<br>✅ High <b>strength-to-weight</b> ratio<br>✅ Low cost<br>✅ <b>Sustainability</b></div>
+  </div>
+
+  <div class="checkpoint" data-title="Types &amp; families of materials"><script type="application/json">[{"q": "Glass is…", "o": ["crystalline", "amorphous", "a metal", "a composite"], "a": 1, "why": "Glass has no regular repeating arrangement of atoms, so it's amorphous."}, {"q": "All metals and alloys are…", "o": ["amorphous", "crystalline", "polymers", "liquids"], "a": 1, "why": "Metals always have a long-range periodic arrangement of atoms."}, {"q": "Reinforced concrete is an example of a…", "o": ["metal", "polymer", "ceramic", "composite"], "a": 3, "why": "It combines concrete (a ceramic) and steel (a metal), so it's a composite."}, {"q": "Which family is stiff and strong but has very low toughness (cracks easily)?", "o": ["Metals", "Ceramics", "Polymers", "Composites"], "a": 1, "why": "Ceramics such as glass and concrete are brittle, which is why concrete needs steel reinforcement."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+
+<section class="level" id="summary">
+  <div class="lvl"><div class="badge p">★</div><h2>Summary</h2></div>
+  <div class="summary"><b>If you remember only these points, you're in great shape:</b><ul>
+    <li><b>Grades:</b> 60% coursework (quizzes, 2 midterms, assignments) + 40% final exam.</li>
+    <li><b>Materials science</b> studies the link between <b>structure</b> and <b>properties</b>; <b>materials engineering</b> uses it to design materials for a job.</li>
+    <li><b>Structure levels</b>, from small to big: subatomic → atomic → nano → micro → macro.</li>
+    <li><b>6 property families:</b> mechanical, electrical, thermal, magnetic, optical, deteriorative.</li>
+    <li><b>Choosing a material:</b> service conditions → deterioration over time → <b>cost</b>.</li>
+    <li><b>Liberty ships:</b> steel turned brittle in the cold + square corners + welded hulls → ships cracked. Wrong material choice = danger.</li>
+    <li><b>Crystalline</b> = ordered repeating atoms (all metals); <b>amorphous</b> = random (glass).</li>
+    <li><b>4 families:</b> metals (strong, ductile, conductive, dense), ceramics (stiff, hard, brittle), polymers (light, flexible, weak), composites (best of both, e.g. reinforced concrete).</li>
+  </ul></div>
+</section>
+<section class="level" id="check">
+  <div class="lvl"><div class="badge g">✓</div><h2>Check yourself</h2></div>
+  <details class="quiz"><summary>What's the difference between materials science and materials engineering?</summary><div>Science asks <b>why</b> (it studies the structure–property link). Engineering <b>designs</b> the structure to get the properties needed.</div></details>
+  <details class="quiz"><summary>Name the 6 families of properties.</summary><div>Mechanical, Electrical, Thermal, Magnetic, Optical, Deteriorative.</div></details>
+  <details class="quiz"><summary>Is glass crystalline or amorphous?</summary><div><b>Amorphous</b>: no repeating pattern.</div></details>
+  <details class="quiz"><summary>Give one reason the Liberty ships cracked.</summary><div>Steel turned brittle in cold water; square corners concentrated stress; the welded hull let cracks run; poor welds.</div></details>
+  <details class="quiz"><summary>Which family is usually the most brittle?</summary><div><b>Ceramics.</b></div></details>
+  <div class="key"><b>🧠 One-line summary</b> Materials come as metals, ceramics, polymers and composites; what's inside (structure) decides how they behave (properties), and choosing wrong can be dangerous.</div>
+</section>
+
+<div id="pager"></div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

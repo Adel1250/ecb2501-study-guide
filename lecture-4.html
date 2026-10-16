@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture 4 · Crystal Structures · ECB2501</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+#densityCalc select{font:inherit;font-size:16px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:100%}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">Lecture 4 + Tutorial Sections 3 &amp; 4</div>
+  <h1>The structure of crystalline solids 💎</h1>
+  <p>How billions of atoms stack into neat patterns, how tightly they pack, how heavy they are, and the HCP proof, all from zero.</p>
+</header>
+
+<div class="toc"><b>On this page</b><ol>
+  <li><a href="#why">Why study crystal structures?</a></li>
+  <li><a href="#basics">Crystalline vs amorphous, the hard-sphere model</a></li>
+  <li><a href="#unitcell">The unit cell &amp; the sharing rule 🎮</a></li>
+  <li><a href="#words">Number of atoms, coordination number, APF</a></li>
+  <li><a href="#sc">SC, BCC, FCC</a></li>
+  <li><a href="#sec3">⭐ TUTORIAL Section 3: unit cell problems</a></li>
+  <li><a href="#hcp">HCP</a></li>
+  <li><a href="#sec4">⭐ TUTORIAL Section 4: prove c/a = 1.633</a></li>
+  <li><a href="#density">Density computations 🎮</a></li>
+  <li><a href="#poly">Single crystals, polycrystals, isotropy</a></li>
+  <li><a href="#xray">X-ray diffraction</a></li>
+  <li><a href="#check">Check yourself</a></li>
+</ol></div>
+
+<section class="level" id="why">
+  <div class="lvl"><div class="badge">1</div><h2>Why study crystal structures?</h2></div>
+  <p>Last lecture: <b>how</b> atoms bond. This lecture: <b>how they arrange themselves</b> in a solid. That arrangement explains real properties:</p>
+  <ul>
+    <li>👓 The same material can be <b>transparent</b> when non-crystalline but <b>opaque or translucent</b> when crystalline (remember the aluminum-oxide disks in <a href="lecture-1.html#why">Lecture 1</a>).</li>
+    <li>🔩 Knowing iron's crystal structure explains what happens when <b>steel is heat-treated</b> to make it stronger.</li>
+  </ul>
+  <div class="tip"><b>🎯 What you should be able to do after this page</b> (the lecture's learning objectives)
+  <br>① Tell crystalline from non-crystalline ② Draw FCC, BCC and HCP unit cells ③ Derive a vs R for FCC and BCC ④ Compute the density of FCC and BCC metals ⑤ Tell single crystals from polycrystals ⑥ Define isotropy and anisotropy</div>
+</section>
+
+<section class="level" id="basics">
+  <div class="lvl"><div class="badge b">2</div><h2>Crystalline vs amorphous</h2></div>
+  <div class="story"><b>🍊 The orange stall</b>
+  Throw oranges into a box and they land in a random jumble: that's <b>amorphous</b> (like glass). Stack them carefully at a fruit stall in a neat repeating pyramid: that's <b>crystalline</b> (like metals).
+  <br>The neat stack fits <b>more oranges</b> in the same space (<b>denser</b>), and each orange is snug against its neighbours. For atoms, snug and orderly means <b>lower energy</b>, so metals naturally prefer to crystallize.</div>
+  <ul>
+    <li><b>Crystalline:</b> atoms sit in a <b>repeating 3D pattern</b> with <b>long-range order</b>. When a metal solidifies, its atoms line up in this pattern by themselves.</li>
+    <li><b>Amorphous</b> (= non-crystalline): <b>no</b> long-range repeating pattern. Happens with complex structures or <b>rapid cooling</b> (no time to line up!).</li>
+  </ul>
+  <h3>Energy &amp; packing (Section 3, first slide)</h3>
+  <div class="grid2">
+    <div class="card"><h4>Non-dense, random packing</h4>Neighbour distances are all different → a <b>shallow, irregular</b> energy well. Less stable.</div>
+    <div class="card"><h4>Dense, ordered packing</h4>Every neighbour sits at the ideal bond length → a <b>deeper, regular</b> energy well. More stable. ✅</div>
+  </div>
+  <div class="tablewrap"><table>
+    <tr><th>Comparison</th><th>Amorphous</th><th>Crystalline</th></tr>
+    <tr><td>Repeating units</td><td>irregular</td><td>regular</td></tr>
+    <tr><td>Geometric shape</td><td>none</td><td>exists</td></tr>
+    <tr><td>Melting point</td><td>not definite (softens gradually)</td><td>fixed, sharp</td></tr>
+    <tr><td>Properties vs direction</td><td>isotropic (same in all directions)</td><td>anisotropic (can differ)</td></tr>
+    <tr><td>Order</td><td>short range only</td><td>long range</td></tr>
+    <tr><td>Examples</td><td>glass, waxes, plastics</td><td>diamond, metals, table salt</td></tr>
+    <tr><td>Typical of</td><td>complex structures, polymers</td><td><b>metals</b>, many <b>ceramics</b>, some <b>polymers</b></td></tr>
+  </table></div>
+
+  <h3>The atomic hard-sphere model</h3>
+  <p>To describe crystals we pretend atoms are <b>solid balls</b> with a fixed diameter, and <b>neighbouring balls touch</b>. Simple, and it works surprisingly well.</p>
+  <p>A <b>lattice</b> is the 3D grid of points sitting at the centres of those balls: the "skeleton" of the crystal.</p>
+
+  <div class="checkpoint" data-title="Crystalline vs amorphous"><script type="application/json">[{"q": "A crystalline material has…", "o": ["no order at all", "long-range repeating order", "only short-range order", "no atoms"], "a": 1, "why": "Crystals repeat the same 3D pattern over long distances."}, {"q": "Which condition favours forming an amorphous solid?", "o": ["very slow cooling", "rapid cooling", "simple metal atoms", "high pressure only"], "a": 1, "why": "With rapid cooling the atoms have no time to line up."}, {"q": "Dense, ordered packing tends to have ___ energy than random packing.", "o": ["higher", "lower", "the same", "infinite"], "a": 1, "why": "Ordered packing puts every neighbour at the ideal bond length → lower, more stable energy."}, {"q": "In the hard-sphere model, neighbouring atoms…", "o": ["overlap completely", "touch each other", "are far apart", "are cubes"], "a": 1, "why": "Atoms are solid balls, and nearest neighbours touch."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="unitcell">
+  <div class="lvl"><div class="badge g">3</div><h2>The unit cell = the Lego brick 🧱</h2></div>
+  <p>A crystal repeats in every direction. Instead of describing billions of atoms, we describe the <b>smallest box that, copied over and over, builds the whole crystal</b>. That box is the <b>unit cell</b>. Its edge length is called <b>a</b> (the lattice parameter).</p>
+  <p>The slides draw each cell three ways: (a) <b>hard-sphere</b>, with balls at real size touching; (b) <b>reduced-sphere</b>, with small balls so you can see inside; (c) the <b>lattice</b>, just the points. The viewer below does (a) and (b):</p>
+
+  <h3>🎮 Spin the unit cells (drag to rotate)</h3>
+  <div class="card">
+    <div class="controls" id="cellBtns">
+      <button class="chip on" data-cell="SC">SC</button>
+      <button class="chip" data-cell="BCC">BCC</button>
+      <button class="chip" data-cell="FCC">FCC</button>
+      <button class="chip" data-cell="HCP">HCP</button>
+      <span style="flex:1"></span>
+      <button class="chip" id="sizeBtn">Show real size</button>
+    </div>
+    <canvas id="cellCanvas" width="800" height="480" data-mobile-ar="1" aria-label="3D unit cell viewer"></canvas>
+    <div class="facts" id="cellFacts"></div>
+    <p class="small" id="cellNote"></p>
+  </div>
+
+  <div class="warn"><b>⚠️ The #1 idea people miss: atoms are SHARED between cells</b>
+  An atom on a <b>cube corner</b> is shared by <b>8</b> cubes meeting there → only <b>1/8</b> belongs to our cell.
+  <br>An atom in the middle of a <b>face</b> is shared by <b>2</b> cells → <b>1/2</b> is ours.
+  <br>An atom <b>fully inside</b> → the whole <b>1</b> is ours.
+  <br>(In HCP, a <b>hexagon corner</b> is shared by <b>6</b> cells → <b>1/6</b>.)
+  <br>Turn on "Show real size" above: you can literally see the atoms poking out of the box.</div>
+</section>
+
+<section class="level" id="words">
+  <div class="lvl"><div class="badge p">4</div><h2>Three numbers that describe every cell</h2></div>
+  <div class="tablewrap"><table>
+    <tr><th>Term</th><th>Meaning in plain words</th></tr>
+    <tr><td><b>a</b></td><td>edge length of the cell</td></tr>
+    <tr><td><b>R</b></td><td>radius of one atom (ball)</td></tr>
+    <tr><td><b>Actual number of atoms (n)</b></td><td>how many whole atoms belong to one cell, after applying the sharing rule</td></tr>
+    <tr><td><b>Coordination number (CN)</b></td><td>how many neighbours each atom is <b>touching</b></td></tr>
+    <tr><td><b>Atomic packing factor (APF)</b></td><td>what fraction of the box is actually filled with atom (the rest is empty space)</td></tr>
+  </table></div>
+  <div class="math big">APF = <span class="frac"><span>volume of atoms in the cell</span><span>total cell volume</span></span> = <span class="frac"><span>n × <sup>4</sup>⁄<sub>3</sub>πR³</span><span>V<sub>cell</sub></span></span></div>
+  <div class="key"><b>⭐ Every APF problem is the same 3-step recipe</b>
+  ① Find <b>a in terms of R</b> (ask: <i>where do the atoms touch?</i>) ② <b>Count atoms</b> with the sharing rule ③ <b>Plug into the formula</b>.</div>
+
+  <div class="checkpoint" data-title="Unit cells, sharing &amp; APF"><script type="application/json">[{"q": "An atom on a CORNER of a cubic unit cell counts as…", "o": ["1", "1/2", "1/4", "1/8"], "a": 3, "why": "8 cells share each corner, so each gets 1/8."}, {"q": "An atom in the centre of a FACE counts as…", "o": ["1", "1/2", "1/6", "1/8"], "a": 1, "why": "2 cells share a face."}, {"q": "APF stands for the…", "o": ["atomic packing factor: atom volume ÷ cell volume", "atomic pressure force", "average particle frequency", "atom per face"], "a": 0, "why": "APF = volume of atoms in the cell ÷ total cell volume."}, {"q": "Coordination number means…", "o": ["the number of atoms per cell", "the number of nearest neighbours each atom touches", "the atomic number", "the number of faces"], "a": 1, "why": "It counts the touching neighbours."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="sc">
+  <div class="lvl"><div class="badge">5</div><h2>The cubic structures</h2></div>
+
+  <h3>🧊 Simple Cubic (SC)</h3>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 200" role="img" aria-label="SC face: atoms touch along the edge">
+      <clipPath id="cSC"><rect x="60" y="30" width="140" height="140"/></clipPath>
+      <g clip-path="url(#cSC)" fill="var(--accent)" fill-opacity=".55" stroke="var(--accent)" stroke-width="2">
+        <circle cx="60" cy="30" r="70"/><circle cx="200" cy="30" r="70"/><circle cx="60" cy="170" r="70"/><circle cx="200" cy="170" r="70"/>
+      </g>
+      <rect x="60" y="30" width="140" height="140" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+      <text x="300" y="60" font-size="18" font-weight="700">Atoms touch along the EDGE</text>
+      <text x="300" y="95" font-size="17">edge = R + R</text>
+      <text x="300" y="128" font-size="20" font-weight="700" style="fill:var(--accent)">a = 2R</text>
+      <text x="300" y="160" font-size="15" style="fill:var(--muted)">(only the 1/8 corner slices are inside)</text>
+    </svg>
+  </div>
+  <ul>
+    <li>a = 2R → V = (2R)³ = <b>8R³</b></li>
+    <li>Atoms: 8 corners × 1/8 = <b>1</b></li>
+    <li>CN = <b>6</b> (left, right, front, back, up, down)</li>
+    <li>APF = (1 × 4/3 πR³) / 8R³ = π/6 = <b>0.52</b>: almost half the box is empty! That's why almost no metal uses SC (polonium is the famous exception).</li>
+  </ul>
+
+  <h3>🧊 Body-Centered Cubic (BCC)</h3>
+  <p>Same cube plus <b>one atom right in the middle</b>. The corner atoms no longer touch each other; they touch the <b>centre</b> atom, along the <b>body diagonal</b>.</p>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 220" role="img" aria-label="BCC body diagonal cut showing 4R">
+      <clipPath id="cBCC"><rect x="40" y="30" width="226" height="160"/></clipPath>
+      <rect x="40" y="30" width="226" height="160" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+      <g clip-path="url(#cBCC)">
+        <g fill="var(--blue)" fill-opacity=".5" stroke="var(--blue)" stroke-width="2"><circle cx="40" cy="190" r="69"/><circle cx="266" cy="30" r="69"/></g>
+        <circle cx="153" cy="110" r="69" fill="var(--accent)" fill-opacity=".55" stroke="var(--accent)" stroke-width="2"/>
+      </g>
+      <line x1="40" y1="190" x2="266" y2="30" stroke="var(--ink)" stroke-width="3"/>
+      <text x="120" y="212" font-size="15">face diagonal = a√2</text>
+      <text x="22" y="115" font-size="15">a</text>
+      <text x="300" y="50" font-size="18" font-weight="700">Atoms touch along the BODY diagonal</text>
+      <text x="300" y="82" font-size="17">body diagonal = R + 2R + R = 4R</text>
+      <text x="300" y="110" font-size="17">and from Pythagoras it is a√3</text>
+      <text x="300" y="144" font-size="17">so &nbsp; a√3 = 4R</text>
+      <text x="300" y="180" font-size="21" font-weight="700" style="fill:var(--accent)">a = 4R / √3</text>
+    </svg>
+  </div>
+  <p>The Section 3 slide does this with Pythagoras twice: face diagonal <span class="m">X² = a² + a² = 2a²</span>, then body diagonal <span class="m">a² + X² = (4R)²</span> → <span class="m">3a² = 16R²</span> → <span class="m">a = 4R/√3</span>.</p>
+  <ul>
+    <li>V = (4R/√3)³ = 64R³/(3√3) ≈ <b>12.32 R³</b></li>
+    <li>Atoms: 8 × 1/8 + 1 centre = <b>2</b></li>
+    <li>CN = <b>8</b> (the centre atom touches all 8 corners)</li>
+    <li>APF = <b>0.68</b> (proved in Section 3 below)</li>
+    <li>Examples: chromium, iron (α), molybdenum, tantalum, tungsten</li>
+  </ul>
+
+  <h3>🧊 Face-Centered Cubic (FCC)</h3>
+  <p>An atom on every corner <b>plus one in the middle of each of the 6 faces</b>. Atoms touch along the <b>face diagonal</b>.</p>
+  <div class="svgbox">
+    <svg viewBox="0 0 640 210" role="img" aria-label="FCC face showing face diagonal 4R">
+      <clipPath id="cFCC"><rect x="50" y="25" width="160" height="160"/></clipPath>
+      <g clip-path="url(#cFCC)">
+        <g fill="var(--green)" fill-opacity=".45" stroke="var(--green)" stroke-width="2"><circle cx="50" cy="185" r="56.6"/><circle cx="210" cy="25" r="56.6"/><circle cx="50" cy="25" r="56.6"/><circle cx="210" cy="185" r="56.6"/></g>
+        <circle cx="130" cy="105" r="56.6" fill="var(--accent)" fill-opacity=".55" stroke="var(--accent)" stroke-width="2"/>
+      </g>
+      <rect x="50" y="25" width="160" height="160" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+      <line x1="50" y1="185" x2="210" y2="25" stroke="var(--ink)" stroke-width="3"/>
+      <text x="300" y="50" font-size="18" font-weight="700">Atoms touch along the FACE diagonal</text>
+      <text x="300" y="82" font-size="17">face diagonal = R + 2R + R = 4R = a√2</text>
+      <text x="300" y="120" font-size="21" font-weight="700" style="fill:var(--accent)">a = 2√2 R</text>
+      <text x="300" y="155" font-size="17">V = a³ = 16√2 R³ ≈ 22.6 R³</text>
+    </svg>
+  </div>
+  <ul>
+    <li>Atoms: 8 × 1/8 + 6 × 1/2 = 1 + 3 = <b>4</b></li>
+    <li>CN = <b>12</b></li>
+    <li>APF = 4 × (4/3)πR³ / (16√2 R³) = <b>0.74</b>, the tightest packing possible for equal balls!</li>
+    <li>Examples: <b>aluminum</b>, copper, gold, lead, nickel, platinum, silver</li>
+  </ul>
+
+  <div class="checkpoint" data-title="SC, BCC, FCC"><script type="application/json">[{"q": "In BCC, atoms touch along the…", "o": ["edge", "face diagonal", "body diagonal", "they don't touch"], "a": 2, "why": "The corner atoms touch the centre atom along the body diagonal: a√3 = 4R."}, {"q": "For FCC, a = ?", "o": ["2R", "4R/√3", "2√2 R", "4R"], "a": 2, "why": "Face diagonal a√2 = 4R → a = 2√2 R."}, {"q": "How many atoms in one BCC unit cell?", "o": ["1", "2", "4", "6"], "a": 1, "why": "8 × 1/8 + 1 centre = 2."}, {"q": "Which cubic structure has APF = 0.74?", "o": ["SC", "BCC", "FCC", "none"], "a": 2, "why": "FCC is the closest packing of equal spheres (0.74)."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<div class="tutbanner" id="sec3"><span class="tag">TUTORIAL</span><div><b>Section 3: Crystalline vs amorphous, unit cells, APF</b><br><span class="small">Both Section 3 examples, solved step by step. (The theory they need is just above.)</span></div></div>
+
+<section class="level" style="margin-top:20px">
+  <div class="lvl"><div class="badge y">S3</div><h2>Section 3 problems</h2></div>
+
+  <h3>📝 Example 1: volume of aluminum's unit cell</h3>
+  <p><b>Given:</b> atomic radius of aluminum R = 0.143 nm. <b>Find:</b> unit cell volume in m³.</p>
+  <ol class="steps">
+    <li><b>Know the structure.</b> Aluminum is <b>FCC</b> (the hidden fact! The question expects you to know it, or read it from the 16-metals table below). So V = 16√2 R³ ≈ <b>22.6 R³</b>.</li>
+    <li><b>Convert to metres first.</b> 1 nm = 10⁻⁹ m → R = 0.143 × 10⁻⁹ m.</li>
+    <li><b>Cube it.</b> (0.143 × 10⁻⁹)³ = 0.002924 × 10⁻²⁷ = 2.924 × 10⁻³⁰ m³ (cube the number <i>and</i> the power: (10⁻⁹)³ = 10⁻²⁷).</li>
+    <li><b>Multiply.</b> V = 22.6 × 2.924 × 10⁻³⁰ = <b>6.61 × 10⁻²⁹ m³</b> ✅</li>
+  </ol>
+  <div class="tip"><b>🤯 How small is that?</b> About 15 <i>quintillion</i> (1.5 × 10¹⁹) of these unit cells fit in a single cubic millimetre.</div>
+
+  <h3>📝 Example 2: show that APF for BCC = 0.68</h3>
+  <ol class="steps">
+    <li><b>Atom volume:</b> 2 atoms × (4/3)πR³ = (8/3)πR³ ≈ 8.38 R³</li>
+    <li><b>Cell volume:</b> a³ = (4R/√3)³ ≈ 12.32 R³</li>
+    <li><b>Divide:</b> APF = 8.38 R³ / 12.32 R³ = <b>0.68</b> ✅</li>
+  </ol>
+  <div class="key"><b>⭐ Notice the magic</b> R³ appears on top and bottom and cancels. APF <b>never</b> depends on the atom's size, only on the <i>arrangement</i>. SC is always 0.52, BCC always 0.68, FCC and HCP always 0.74.</div>
+  <div class="warn"><b>⚠️ Small typo alert</b> One Section 3 slide shows the BCC volume as 12.81R³. The correct value is (4/√3)³ R³ = <b>12.32R³</b> (the lecture's table says 12.31, which is just rounding). The APF of 0.68 only works with 12.32, so trust that.</div>
+
+  <div class="checkpoint" data-title="Section 3 problems"><script type="application/json">[{"q": "Aluminum (R = 0.143 nm) is FCC. Its unit cell volume is…", "o": ["8R³", "12.32R³ = 4.2 × 10⁻²⁹ m³", "22.6R³ = 6.61 × 10⁻²⁹ m³", "33.9R³"], "a": 2, "why": "FCC volume is 16√2R³ ≈ 22.6R³; with R = 0.143 × 10⁻⁹ m this gives 6.61 × 10⁻²⁹ m³."}, {"q": "(0.143 × 10⁻⁹)³ has which power of ten?", "o": ["10⁻⁹", "10⁻¹²", "10⁻²⁷", "10⁻⁶"], "a": 2, "why": "Cube the power: −9 × 3 = −27."}, {"q": "APF of BCC = (2 × 4/3 πR³) ÷ ?", "o": ["8R³", "12.32R³", "22.6R³", "4R"], "a": 1, "why": "BCC cell volume is (4R/√3)³ ≈ 12.32R³, giving 8.38/12.32 = 0.68."}, {"q": "Why does the APF not depend on the atom size?", "o": ["R³ cancels top and bottom", "all atoms have the same size", "it's always 1", "because of Avogadro's number"], "a": 0, "why": "Both atom volume and cell volume scale with R³, so R cancels."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="hcp">
+  <div class="lvl"><div class="badge p">6</div><h2>Hexagonal Close-Packed (HCP)</h2></div>
+  <div class="story"><b>🍊 Back to the oranges</b>
+  Lay oranges flat, packed as tight as possible: each one is surrounded by 6 others in a hexagon. That's <b>layer A</b>. Add a second layer: the oranges sink into the dips of the first. That's <b>layer B</b>. Third layer goes <b>directly above A</b>. Repeat: <b>A B A B…</b> That's <b>HCP</b>.
+  <br>(Put the third layer in a <i>new</i> spot instead, A B C A B C…, and you get FCC! Same 0.74 packing, different stacking.)</div>
+  <p>The HCP cell is a <b>hexagonal prism</b> (<a href="#cellCanvas" data-show-cell="HCP">see it spin in the viewer</a>):</p>
+  <ul>
+    <li><b>Top and bottom faces:</b> a hexagon of 6 atoms plus 1 in the centre.</li>
+    <li><b>Middle layer:</b> 3 atoms tucked into the dips, at height c/2.</li>
+    <li>Two lengths: <b>a</b> = side of the hexagon (= 2R), <b>c</b> = height of the prism.</li>
+  </ul>
+  <div class="tablewrap"><table>
+    <tr><th>Atoms in the HCP cell</th><th>Count</th><th>Share</th><th>Total</th></tr>
+    <tr><td>Hexagon corners (top + bottom)</td><td>12</td><td>1/6 each</td><td>2</td></tr>
+    <tr><td>Face centres (top + bottom)</td><td>2</td><td>1/2 each</td><td>1</td></tr>
+    <tr><td>Middle layer (fully inside)</td><td>3</td><td>1 each</td><td>3</td></tr>
+    <tr><td colspan="3"><b>Total</b></td><td><b>6</b></td></tr>
+  </table></div>
+  <ul>
+    <li>CN = <b>12</b> (6 in its own layer + 3 above + 3 below)</li>
+    <li>APF = <b>0.74</b>, same as FCC</li>
+    <li>Cell volume = <b>24√2 R³ ≈ 33.9 R³</b> <span class="small">(the lecture's table prints 33.84; 33.94 is the exact value)</span></li>
+    <li>Examples: cadmium, cobalt, titanium (α), zinc, magnesium</li>
+  </ul>
+
+  <h3>📋 The big summary table</h3>
+  <div class="tablewrap"><table>
+    <tr><th></th><th>SC</th><th>BCC</th><th>FCC</th><th>HCP</th></tr>
+    <tr><td><b>Atoms touch along</b></td><td>edge</td><td>body diagonal</td><td>face diagonal</td><td>hexagon edge</td></tr>
+    <tr><td><b>Actual no. of atoms</b></td><td>1</td><td>2</td><td>4</td><td>6</td></tr>
+    <tr><td><b>a in terms of R</b></td><td>2R</td><td>4R/√3</td><td>2√2 R</td><td>2R (and c = 1.633a)</td></tr>
+    <tr><td><b>Cell volume</b></td><td>8R³</td><td>12.32R³</td><td>22.6R³</td><td>33.94R³</td></tr>
+    <tr><td><b>Coordination no.</b></td><td>6</td><td>8</td><td>12</td><td>12</td></tr>
+    <tr><td><b>APF</b></td><td>0.52</td><td>0.68</td><td>0.74</td><td>0.74</td></tr>
+  </table></div>
+
+  <div class="checkpoint" data-title="HCP"><script type="application/json">[{"q": "How many atoms in one HCP unit cell?", "o": ["2", "4", "6", "12"], "a": 2, "why": "12 × 1/6 + 2 × 1/2 + 3 = 2 + 1 + 3 = 6."}, {"q": "A hexagon-corner atom in HCP counts as…", "o": ["1/8", "1/6", "1/2", "1"], "a": 1, "why": "6 cells share each hexagon corner."}, {"q": "The stacking sequence of HCP is…", "o": ["ABCABC…", "ABAB…", "AAAA…", "random"], "a": 1, "why": "HCP stacks ABAB…; FCC stacks ABCABC…."}, {"q": "HCP's coordination number and APF are…", "o": ["8 and 0.68", "6 and 0.52", "12 and 0.74", "12 and 0.68"], "a": 2, "why": "Same as FCC: 12 neighbours, 74% filled."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<div class="tutbanner" id="sec4"><span class="tag">TUTORIAL</span><div><b>Section 4: HCP crystal structure</b><br><span class="small">Show that the ideal c/a ratio is 1.633. Needs only Pythagoras and cos 30°.</span></div></div>
+
+<section class="level" style="margin-top:20px">
+  <div class="lvl"><div class="badge y">S4</div><h2>Prove the ideal c/a = 1.633</h2></div>
+  <div class="tip"><b>The idea in one sentence</b>
+  The middle atom M sits in a dip on top of 3 bottom-layer atoms (J, K, L) that all touch each other and touch it. These 4 atoms form a little pyramid (a <b>tetrahedron</b>) with every edge = 2R = a. Find the pyramid's height: that height is c/2.</div>
+
+  <div class="svgbox">
+    <svg viewBox="0 -24 680 324" role="img" aria-label="Tetrahedron JKLM and base triangle JKL">
+      <text x="20" y="-4" font-size="16" font-weight="700">① Side view of the tetrahedron</text>
+      <polygon points="40,250 260,250 190,215" fill="var(--purple-soft)" stroke="var(--muted)" stroke-width="2"/>
+      <line x1="40" y1="250" x2="165" y2="80" stroke="var(--ink)" stroke-width="2.5"/>
+      <line x1="260" y1="250" x2="165" y2="80" stroke="var(--ink)" stroke-width="2.5"/>
+      <line x1="190" y1="215" x2="165" y2="80" stroke="var(--ink)" stroke-width="2" stroke-dasharray="5 4"/>
+      <line x1="165" y1="80" x2="163" y2="238" stroke="var(--accent)" stroke-width="3"/>
+      <line x1="40" y1="250" x2="163" y2="238" stroke="var(--blue)" stroke-width="3"/>
+      <circle cx="163" cy="238" r="4" fill="var(--accent)"/>
+      <g font-size="16" font-weight="700"><text x="22" y="270">J</text><text x="262" y="270">K</text><text x="196" y="210">L</text><text x="158" y="70">M</text><text x="170" y="256" style="fill:var(--accent)">H</text></g>
+      <text x="172" y="160" font-size="15" style="fill:var(--accent)" font-weight="700">MH = c/2</text>
+      <text x="56" y="160" font-size="15" font-weight="700">JM = a</text>
+      <text x="80" y="236" font-size="15" style="fill:var(--blue)" font-weight="700">JH</text>
+      <text x="360" y="-4" font-size="16" font-weight="700">② Looking down at the base JKL</text>
+      <polygon points="380,260 640,260 510,35" fill="var(--purple-soft)" stroke="var(--ink)" stroke-width="2.5"/>
+      <circle cx="510" cy="185" r="5" fill="var(--accent)"/>
+      <line x1="380" y1="260" x2="510" y2="185" stroke="var(--blue)" stroke-width="3"/>
+      <line x1="510" y1="185" x2="510" y2="260" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>
+      <path d="M 420 260 A 40 40 0 0 0 415 240" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+      <text x="425" y="252" font-size="14" style="fill:var(--gold)" font-weight="700">30°</text>
+      <g font-size="16" font-weight="700"><text x="362" y="280">J</text><text x="644" y="280">K</text><text x="522" y="40">L</text><text x="520" y="190" style="fill:var(--accent)">H</text></g>
+      <text x="430" y="200" font-size="15" style="fill:var(--blue)" font-weight="700">JH</text>
+      <text x="445" y="285" font-size="14">a/2</text><text x="555" y="285" font-size="14">a/2</text>
+    </svg>
+  </div>
+
+  <ol class="steps">
+    <li><b>Spot the touching atoms.</b> J, K, L (bottom layer) and M (middle layer) all touch, so every edge of the pyramid is
+      <div class="math">JM = JK = 2R = a</div></li>
+    <li><b>Where is M?</b> Exactly halfway up the cell, directly above point H (the centre of triangle JKL):
+      <div class="math">MH = c/2</div></li>
+    <li><b>Find JH from the base triangle.</b> JKL is equilateral (all angles 60°). The line from J to the centre H cuts J's angle in half → <b>30°</b>. The horizontal part of JH is half of JK, i.e. a/2:
+      <div class="math">cos 30° = <span class="frac"><span>a/2</span><span>JH</span></span> &nbsp;→&nbsp; JH = <span class="frac"><span>a/2</span><span>√3/2</span></span> = <span class="frac"><span>a</span><span>√3</span></span></div></li>
+    <li><b>Pythagoras in triangle JHM</b> (right angle at H, since M is straight above H):
+      <div class="math">JM² = JH² + MH² &nbsp;→&nbsp; a² = <span class="frac"><span>a²</span><span>3</span></span> + <span class="frac"><span>c²</span><span>4</span></span></div></li>
+    <li><b>Solve for c².</b> a² − a²/3 = 2a²/3, so
+      <div class="math"><span class="frac"><span>c²</span><span>4</span></span> = <span class="frac"><span>2a²</span><span>3</span></span> &nbsp;→&nbsp; c² = <span class="frac"><span>8a²</span><span>3</span></span></div></li>
+    <li><b>Square root, divide by a:</b>
+      <div class="math big"><span class="frac"><span>c</span><span>a</span></span> = √(8/3) = <b>1.633</b> ✅</div></li>
+  </ol>
+  <div class="key"><b>⭐ What "ideal" means</b> 1.633 is what you get for <i>perfect</i> hard balls. Real metals are close: magnesium ≈ 1.62, titanium ≈ 1.59, zinc ≈ 1.86 (zinc's atoms are a bit "squashed").</div>
+
+  <div class="checkpoint" data-title="Section 4: the c/a proof"><script type="application/json">[{"q": "In the tetrahedron JKLM, every edge equals…", "o": ["R", "2R = a", "c", "c/2"], "a": 1, "why": "All four atoms touch, so centre-to-centre distance is 2R = a."}, {"q": "The height MH of the tetrahedron equals…", "o": ["c", "c/2", "a", "a/2"], "a": 1, "why": "M sits halfway up the cell."}, {"q": "JH (from corner J to the centre of the equilateral triangle) = ?", "o": ["a/2", "a/√3", "a√3", "a√2"], "a": 1, "why": "cos 30° = (a/2)/JH → JH = a/√3."}, {"q": "From a² = a²/3 + c²/4, the ideal c/a is…", "o": ["1.414", "1.633", "1.732", "2"], "a": 1, "why": "c² = 8a²/3 → c/a = √(8/3) = 1.633."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="density">
+  <div class="lvl"><div class="badge b">7</div><h2>Density computations ⚖️</h2></div>
+  <p>Density = how heavy something is for its size. If we know the unit cell, we can <b>calculate</b> a metal's density without ever weighing it!</p>
+  <div class="math big">ρ = <span class="frac"><span>mass of atoms in cell</span><span>volume of cell</span></span> = <span class="frac"><span>n A</span><span>V<sub>C</sub> N<sub>A</sub></span></span></div>
+  <div class="tablewrap"><table>
+    <tr><th>Symbol</th><th>Meaning</th><th>Where you get it</th></tr>
+    <tr><td>n</td><td>number of atoms in the cell</td><td>FCC = 4, BCC = 2 (sharing rule)</td></tr>
+    <tr><td>A</td><td>atomic weight (g/mol)</td><td>periodic table (Lecture 2)</td></tr>
+    <tr><td>V<sub>C</sub></td><td>volume of the unit cell (cm³)</td><td>a³, using a in terms of R</td></tr>
+    <tr><td>N<sub>A</sub></td><td>Avogadro's number</td><td>6.022 × 10²³ atoms/mol</td></tr>
+  </table></div>
+  <p><b>Why it works:</b> A/N<sub>A</sub> is the mass of <b>one</b> atom (Lecture 2!). Multiply by n atoms and you have the mass inside the cell. Divide by the cell's volume. Done.</p>
+
+  <h3>📝 Lecture example: theoretical density of copper</h3>
+  <p>Copper: R = 0.128 nm, FCC, A = 63.5 g/mol.</p>
+  <ol class="steps">
+    <li>FCC → <b>n = 4</b>, V<sub>C</sub> = 16√2 R³</li>
+    <li>Units! Density is in g/cm³, so use cm: R = 0.128 nm = 1.28 × 10⁻⁸ cm</li>
+    <li>V<sub>C</sub> = 16√2 × (1.28 × 10⁻⁸)³ = 22.63 × 2.097 × 10⁻²⁴ = 4.75 × 10⁻²³ cm³</li>
+    <li>ρ = (4 × 63.5) / (4.75 × 10⁻²³ × 6.022 × 10²³) = 254 / 28.6 = <b>8.89 g/cm³</b></li>
+    <li>Measured: <b>8.94 g/cm³</b>. Super close! 🎯</li>
+  </ol>
+
+  <h3>🎮 Density calculator: try any metal</h3>
+  <div class="card" id="densityCalc">
+    <label><b>Pick a metal:</b> <select aria-label="Metal"></select></label>
+    <div class="calcout" style="margin-top:16px"></div>
+  </div>
+
+  <h3>Crystal structures of 16 metals</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Metal</th><th>Structure</th><th>R (nm)</th><th>Metal</th><th>Structure</th><th>R (nm)</th></tr>
+    <tr><td>Aluminum</td><td>FCC</td><td>0.1431</td><td>Molybdenum</td><td>BCC</td><td>0.1363</td></tr>
+    <tr><td>Cadmium</td><td>HCP</td><td>0.1490</td><td>Nickel</td><td>FCC</td><td>0.1246</td></tr>
+    <tr><td>Chromium</td><td>BCC</td><td>0.1249</td><td>Platinum</td><td>FCC</td><td>0.1387</td></tr>
+    <tr><td>Cobalt</td><td>HCP</td><td>0.1253</td><td>Silver</td><td>FCC</td><td>0.1445</td></tr>
+    <tr><td>Copper</td><td>FCC</td><td>0.1278</td><td>Tantalum</td><td>BCC</td><td>0.1430</td></tr>
+    <tr><td>Gold</td><td>FCC</td><td>0.1442</td><td>Titanium (α)</td><td>HCP</td><td>0.1445</td></tr>
+    <tr><td>Iron (α)</td><td>BCC</td><td>0.1241</td><td>Tungsten</td><td>BCC</td><td>0.1371</td></tr>
+    <tr><td>Lead</td><td>FCC</td><td>0.1750</td><td>Zinc</td><td>HCP</td><td>0.1332</td></tr>
+  </table></div>
+
+  <h3>Why are metals denser than ceramics and polymers?</h3>
+  <p>In general: <b>ρ<sub>metals</sub> &gt; ρ<sub>ceramics</sub> &gt; ρ<sub>polymers</sub></b>. These are the blanks in the slide:</p>
+  <ul>
+    <li><b>Metals</b>: close packing (metallic bonding) + often <b>higher</b> atomic masses → heaviest.</li>
+    <li><b>Ceramics</b>: less dense packing, often <b>lighter</b> elements.</li>
+    <li><b>Polymers</b>: low packing <b>factor</b> (often <b>amorphous</b>), light elements (C, H, O) → lightest.</li>
+    <li><b>Composites</b>: intermediate values, generally <b>lower</b> densities.</li>
+  </ul>
+
+  <div class="checkpoint" data-title="Density computations"><script type="application/json">[{"q": "Theoretical density ρ = ?", "o": ["nA / (V<sub>C<\/sub> N<sub>A<\/sub>)", "V<sub>C<\/sub> / nA", "N<sub>A<\/sub> / nA", "nV<sub>C<\/sub> / A"], "a": 0, "why": "Mass of n atoms (nA/N<sub>A<\/sub>) divided by cell volume V<sub>C<\/sub>."}, {"q": "For copper (FCC), n = ?", "o": ["1", "2", "4", "6"], "a": 2, "why": "FCC has 4 atoms per cell."}, {"q": "To get density in g/cm³, R must be in…", "o": ["nm", "m", "cm", "mm"], "a": 2, "why": "Use cm so that V<sub>C<\/sub> comes out in cm³ (1 nm = 10⁻⁷ cm)."}, {"q": "In general, which order of densities is correct?", "o": ["polymers &gt; ceramics &gt; metals", "metals &gt; ceramics &gt; polymers", "ceramics &gt; metals &gt; polymers", "all equal"], "a": 1, "why": "Metals: close packing + heavy atoms. Polymers: low packing, light C/H/O atoms."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="poly">
+  <div class="lvl"><div class="badge g">8</div><h2>Single crystals, polycrystals &amp; isotropy</h2></div>
+  <h3>Single crystal</h3>
+  <p>The <b>regular</b> repeating pattern continues <b>without interruption through the whole piece</b>. Rare and special: diamond single crystals (for <b>abrasion resistance</b>), quartz, and jet-engine turbine blades.</p>
+  <h3>Polycrystalline: what most materials actually are</h3>
+  <p>Most engineering materials are made of <b>many small single crystals</b> stuck together. Each small crystal is called a <b>grain</b>. Grain sizes range from about 1 nm to 2 cm.</p>
+  <div class="story"><b>❄️ How grains form (solidification)</b>
+  ① As liquid metal cools, tiny crystal "seeds" (<b>nuclei</b>) appear in random places, each tilted differently.
+  ② They <b>grow</b> by grabbing atoms from the liquid.
+  ③ Neighbouring crystals bump into each other and stop. They end up with <b>irregular shapes</b>.
+  ④ Under a microscope you see the <b>grains</b>, separated by dark lines called <b>grain boundaries</b> (where two differently-tilted patterns meet).
+  <br>Think of ice forming on a pond from many starting points at once.</div>
+  <h3>Isotropic vs anisotropic</h3>
+  <div class="grid2">
+    <div class="card"><h4>Anisotropic</h4>The property value <b>depends on the direction</b> you measure.<br>Seen in <b>single crystals</b>.<br><b>Example:</b> stiffness of BCC iron: E along the cube <b>edge</b> = 125 GPa, along the <b>body diagonal</b> = 273 GPa. Same crystal, different direction!</div>
+    <div class="card"><h4>Isotropic</h4>The property is <b>the same in all directions</b>.<br>Polycrystals whose grains are <b>randomly oriented</b>: the directions average out.<br><b>Example:</b> ordinary polycrystalline iron: E = 210 GPa in every direction.</div>
+  </div>
+  <p>But if the grains are <b>textured</b> (e.g. a rolled or <b>deformed</b> metal where grains line up in a preferred direction), the polycrystal becomes <b>anisotropic</b> again.</p>
+
+  <div class="checkpoint" data-title="Single crystals, polycrystals, isotropy"><script type="application/json">[{"q": "Most engineering materials are…", "o": ["single crystals", "polycrystalline", "amorphous", "liquid"], "a": 1, "why": "They're made of many small crystals called grains."}, {"q": "A property that depends on the direction of measurement is…", "o": ["isotropic", "anisotropic", "amorphous", "polycrystalline"], "a": 1, "why": "Anisotropic = direction-dependent (e.g. single-crystal BCC iron: 125 vs 273 GPa)."}, {"q": "A polycrystal with RANDOMLY oriented grains is…", "o": ["isotropic", "anisotropic", "a single crystal", "amorphous"], "a": 0, "why": "Random orientations average out, so the properties are equal in all directions."}, {"q": "The boundaries between grains are called…", "o": ["unit cells", "lattices", "grain boundaries", "nuclei"], "a": 2, "why": "They're where two differently tilted crystal patterns meet."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+<section class="level" id="xray">
+  <div class="lvl"><div class="badge">9</div><h2>X-ray diffraction: how we "see" crystals 🔦</h2></div>
+  <p>Atoms are far too small to see with light. So we shine <b>X-rays</b> at the crystal. Their wavelength is about the same size as the spacing between atoms.</p>
+  <ul>
+    <li>X-rays bounce (<b>scatter</b>) off <b>planes</b> of atoms.</li>
+    <li>If two scattered waves come out <b>in step</b> (in phase), they add up → a strong signal: <b>constructive interference</b> 🔊</li>
+    <li>If they come out <b>out of step</b>, they cancel → nothing: <b>destructive interference</b> 🔇</li>
+    <li>Strong signals only appear at special angles that depend on the spacing of the atom planes. Measure those angles → work out the crystal structure.</li>
+  </ul>
+  <p><b>The machine (diffractometer):</b> an X-ray source <b>T</b>, the specimen <b>S</b>, and a detector <b>C</b>, which rotate around an axis <b>O</b>. The output is a <b>diffraction pattern</b>: a graph of sharp peaks, like a fingerprint of the crystal (the slides show one for α-iron).</p>
+  <p><b>Uses:</b> identifying what a material is made of (and how much), measuring residual stresses, and measuring crystal size.</p>
+
+  <div class="checkpoint" data-title="X-ray diffraction"><script type="application/json">[{"q": "When two scattered X-ray waves stay in phase, they…", "o": ["cancel (destructive)", "add up (constructive)", "disappear", "slow down"], "a": 1, "why": "In-phase waves add together → strong signal."}, {"q": "X-ray diffraction is mainly used to…", "o": ["melt metals", "determine crystal structures", "measure weight", "make polymers"], "a": 1, "why": "The diffraction pattern is a fingerprint of the crystal structure."}, {"q": "Besides crystal structure, X-rays can determine…", "o": ["colour", "residual stresses and crystal size", "taste", "price"], "a": 1, "why": "Plus qualitative and quantitative chemical identification."}]</script><noscript>Turn on JavaScript to take this quiz.</noscript></div>
+</section>
+
+
+<section class="level" id="summary">
+  <div class="lvl"><div class="badge p">★</div><h2>Summary</h2></div>
+  <div class="summary"><b>If you remember only these points, you're in great shape:</b><ul>
+    <li><b>Crystalline</b> = long-range repeating order (metals, many ceramics). <b>Amorphous</b> = no long-range order (glass; favoured by rapid cooling). Ordered packing = lower energy.</li>
+    <li><b>Hard-sphere model:</b> atoms are touching balls. The <b>unit cell</b> is the repeating brick; <b>a</b> = edge length.</li>
+    <li><b>Sharing rule:</b> cube corner ⅛, face ½, inside 1 (HCP hexagon corner ⅙).</li>
+    <li><b>APF</b> = n·(4/3)πR³ ÷ V<sub>cell</sub>. Recipe: where do atoms touch → a in R → count atoms → divide.</li>
+    <li><b>SC:</b> a = 2R, 1 atom, CN 6, APF 0.52. <b>BCC:</b> a = 4R/√3, 2 atoms, CN 8, APF 0.68. <b>FCC:</b> a = 2√2R, 4 atoms, CN 12, APF 0.74. <b>HCP:</b> 6 atoms, CN 12, APF 0.74.</li>
+    <li><b>Section 3:</b> Al (FCC, R = 0.143 nm) → V = 22.6R³ = <b>6.61 × 10⁻²⁹ m³</b>; BCC APF = 8.38R³/12.32R³ = <b>0.68</b>.</li>
+    <li><b>Section 4:</b> tetrahedron JKLM with edges a, height c/2, JH = a/√3 → a² = a²/3 + c²/4 → <b>c/a = √(8/3) = 1.633</b>.</li>
+    <li><b>Density:</b> ρ = nA / (V<sub>C</sub>N<sub>A</sub>). Copper → 8.89 g/cm³ (measured 8.94). ρ<sub>metals</sub> &gt; ρ<sub>ceramics</sub> &gt; ρ<sub>polymers</sub>.</li>
+    <li><b>Polycrystals</b> = many grains with grain boundaries. <b>Anisotropic</b> = direction-dependent (single crystals); <b>isotropic</b> = same in all directions (randomly oriented grains).</li>
+    <li><b>X-ray diffraction:</b> constructive interference from atom planes at special angles reveals crystal structure (and residual stress and crystal size).</li>
+  </ul></div>
+</section>
+<section class="level" id="check">
+  <div class="lvl"><div class="badge g">✓</div><h2>Check yourself</h2></div>
+  <details class="quiz"><summary>How many atoms belong to one FCC unit cell, and why?</summary><div><b>4.</b> Corners: 8 × 1/8 = 1. Faces: 6 × 1/2 = 3. Total 4.</div></details>
+  <details class="quiz"><summary>In BCC, where do atoms touch, and what does that give you?</summary><div>Along the <b>body diagonal</b>: 4R = a√3, so a = 4R/√3.</div></details>
+  <details class="quiz"><summary>Which packs denser: BCC or FCC?</summary><div><b>FCC</b> (0.74 vs 0.68).</div></details>
+  <details class="quiz"><summary>Why is the APF the same for gold and aluminum, though their atoms differ in size?</summary><div>Both are FCC, and R³ cancels in the APF formula. Only the arrangement matters.</div></details>
+  <details class="quiz"><summary>How many atoms are in one HCP cell?</summary><div><b>6.</b> 12 × 1/6 + 2 × 1/2 + 3 = 2 + 1 + 3.</div></details>
+  <details class="quiz"><summary>In the HCP proof, why is MH = c/2 and not c?</summary><div>The middle-layer atom M sits halfway between the bottom and top faces.</div></details>
+  <details class="quiz"><summary>HCP and FCC both have APF 0.74. What's different?</summary><div>The stacking order: HCP is ABAB…, FCC is ABCABC….</div></details>
+  <details class="quiz"><summary>What 4 things do you need to calculate a metal's density?</summary><div>n (atoms per cell), A (atomic weight), V<sub>C</sub> (cell volume from R), and N<sub>A</sub>. Then ρ = nA / (V<sub>C</sub>N<sub>A</sub>).</div></details>
+  <details class="quiz"><summary>Is a single crystal isotropic or anisotropic?</summary><div><b>Anisotropic</b>: properties depend on direction.</div></details>
+  <div class="key"><b>🧠 One-line summary</b> Metals crystallize into SC, BCC, FCC or HCP cells. Find where atoms touch → a in terms of R → count shared atoms → APF and density. Real metals are polycrystals, and X-rays reveal their structure.</div>
+</section>
+
+<div id="pager"></div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
